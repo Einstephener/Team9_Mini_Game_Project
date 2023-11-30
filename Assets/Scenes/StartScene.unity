@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 12127316}
-  bgmusic: {fileID: 8300000, guid: 566e288442b2f7744b841c72ce65c98a, type: 3}
+  bgMusic: {fileID: 8300000, guid: 566e288442b2f7744b841c72ce65c98a, type: 3}
 --- !u!4 &12127318
 Transform:
   m_ObjectHideFlags: 0
@@ -672,7 +672,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
