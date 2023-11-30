@@ -28,9 +28,5 @@ public class Paddle : MonoBehaviour
         m_rigidBody.velocity = new Vector2(movement * m_speed, 0);    
     }
 
-    public void Reset()
-    {
-        m_rigidBody.velocity = Vector3.zero;
-        transform.position = startPosition;
-    }
+
 }

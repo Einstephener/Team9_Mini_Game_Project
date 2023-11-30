@@ -14,7 +14,7 @@ public class Ball : MonoBehaviour
         Launch();
     }
 
-    private void Launch() //처음 시작하면 랜덤 방향으로 간다.
+    public void Launch() //처음 시작하면 랜덤 방향으로 간다.
     {
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
         float y = 1;
