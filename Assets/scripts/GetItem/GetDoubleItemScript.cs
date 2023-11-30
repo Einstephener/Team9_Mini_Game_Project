@@ -1,26 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GetDoubleItemScript : MonoBehaviour
 {
     public GameObject DoubleItem;
-    public GameObject Ball;
+    public int numberOfBallsToAdd = 1;
 
-
-    public void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collider.gameObject.tag == "/*ÆÐµé ÅÂ±×*/")
-        { 
-            GetDoubleItem();
+        if (other.CompareTag("Paddle"))
+        {
+            PaddleController paddle = other.GetComponent<PaddleController>();
+            if (paddle != null)
+            {
+                paddle.IncreaseBallCount(numberOfBallsToAdd);
+                Destroy(DoubleItem);
+            }
         }
-        
-
-    }
-    public void GetDoubleItem()
-    {
-        float x = Ball.transform.position.x;
-        float y = Ball.transform.position.y;
-        Instantiate(Ball,new Vector3(x,y), Quaternion.identity);
     }
 }

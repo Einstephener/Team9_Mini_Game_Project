@@ -1,31 +1,23 @@
-using System.Collections;
+癤퓎sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GetSpeedItemScript : MonoBehaviour
 {
     public GameObject SpeedItem;
-    public GameObject Ball;
 
+    public float ballSpeedMultiplier = 2f;
 
-    public float BallSpeedMultiplier = 2f;
-
-    private void OnTriggerEnter2D(Collider2D collider)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collider.CompareTag("Ball"))
+        if (other.CompareTag("Paddle"))
         {
-            // 공의 스크립트를 가져옴
-            /*공의 스크립트 명*/ ball = collider.GetComponent</*공의 스크립트 명*/>();
-
-            if (ball != null)
+            PaddleController paddle = other.GetComponent<PaddleController>();
+            if (paddle != null)
             {
-                // 공의 속도를 2배로 늘림
-                ball.IncreaseSpeed(BallSpeedMultiplier);
-
-                // 아이템을 먹은 후 아이템을 파괴
-                Destroy(gameObject);
+                paddle.IncreaseBallSpeed(ballSpeedMultiplier);
+                Destroy(SpeedItem);
             }
         }
     }
-
 }
