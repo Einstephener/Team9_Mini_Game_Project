@@ -8,14 +8,17 @@ public class GameManager : MonoBehaviour
     public static GameManager I;
 
     [Header("Ball")]
-    public Ball m_ball;
+    public GameObject m_ball;
 
     [Header("Paddle")]
-    public Paddle m_playerPaddle;
+    public GameObject m_playerPaddle;
 
     [Header("UI")]
     public TextMeshProUGUI player1Text;
     public TextMeshProUGUI player2Text;
+
+    [Header("Key")] 
+    public KeyCode Spacebar;
 
     private void Awake()
     {
@@ -27,14 +30,35 @@ public class GameManager : MonoBehaviour
         I = this; 
         DontDestroyOnLoad(gameObject); 
     }
+
+    private void Update()
+    {
+        if(Input.GetKey(Spacebar))
+        {
+            BallAdd();
+        }
+    }
+
+    private void Start()
+    {
+        Instantiate(m_ball);
+        Instantiate(m_playerPaddle);
+    }
+
+    public void BallAdd()
+    {
+        Instantiate(m_ball);
+    }
+
     public void BallDead()
     {
         //¸ñ¼û -1
         ResetPosition();
     }
+
     private void ResetPosition()
     {
-        m_ball.Reset();
+        //m_ball.Reset();
         //m_playerPaddle.Reset();
     }
 }

@@ -4,29 +4,25 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    public float speed;
     public Rigidbody2D m_rigidBody;
+    public float m_speed = 0;
 
-    
-    void Start() //Ball이 달려오는 component에 rigidbody를 가져와라
+    private void Start() //Ball이 달려오는 component에 rigidbody를 가져와라
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
         Launch();
     }
 
-    public void Launch() //처음 시작하면 랜덤 방향으로 간다.
+    public void SetSpeed(float multiplier)
+    {
+        m_rigidBody.velocity *= multiplier;
+    }
+
+    private void Launch() //처음 시작하면 위쪽으로 좌우 랜덤 방향으로 간다.
     {
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
         float y = 1;
 
-        m_rigidBody.velocity = new Vector2(x* speed, y* speed);
+        m_rigidBody.velocity = new Vector2(x* m_speed, y* m_speed);
     }
-
-    public void Reset()
-    {
-        m_rigidBody.velocity = Vector2.zero;
-        transform.position = Vector2.zero;
-        Launch();
-    }
-   
 }
