@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,13 +8,13 @@ public class Ball : MonoBehaviour
     public Rigidbody2D rigidbody;
 
     
-    void Start() //BallÀÌ ´Ş·Á¿À´Â component¿¡ rigidbody¸¦ °¡Á®¿Í¶ó
+    void Start() //Ballì´ ë‹¬ë ¤ì˜¤ëŠ” componentì— rigidbodyë¥¼ ê°€ì ¸ì™€ë¼
     {
         rigidbody = GetComponent<Rigidbody2D>();
         Launch();
     }
 
-    private void Launch() //Ã³À½ ½ÃÀÛÇÏ¸é ·£´ı ¹æÇâÀ¸·Î °£´Ù.
+    private void Launch() //ì²˜ìŒ ì‹œì‘í•˜ë©´ ëœë¤ ë°©í–¥ìœ¼ë¡œ ê°„ë‹¤.
     {
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
         float y = Random.Range(0, 2) == 0 ? -1 : 1;
