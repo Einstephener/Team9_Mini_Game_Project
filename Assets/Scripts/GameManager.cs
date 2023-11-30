@@ -35,6 +35,6 @@ public class GameManager : MonoBehaviour
     private void ResetPosition()
     {
         m_ball.Reset();
-        m_playerPaddle.Reset();
+        //m_playerPaddle.Reset();
     }
 }
