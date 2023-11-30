@@ -6,8 +6,13 @@ public class Ball : MonoBehaviour
 {
     public float speed;
     public Rigidbody2D m_rigidBody;
+    public AudioClip clip;
+    private AudioSource audioSource;
 
-    
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     void Start() //Ball이 달려오는 component에 rigidbody를 가져와라
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
@@ -28,5 +33,14 @@ public class Ball : MonoBehaviour
         transform.position = Vector2.zero;
         Launch();
     }
-   
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Brick"))
+        {
+            Debug.Log("사운드 재생");
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
 }
