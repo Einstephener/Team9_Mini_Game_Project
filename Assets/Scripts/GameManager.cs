@@ -17,9 +17,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI player1Text;
     public TextMeshProUGUI player2Text;
 
-    [Header("Key")] 
-    public KeyCode Spacebar;
+    [Header("LimitTime")]
+    public float limitTime_stage;
 
+    [Header("Life")]
+    public int playerLife;
+
+    
     private void Awake()
     {
         if (I != null) 
@@ -52,7 +56,7 @@ public class GameManager : MonoBehaviour
 
     public void BallDead()
     {
-        //¸ñ¼û -1
+        //ï¿½ï¿½ï¿½ -1
         ResetPosition();
     }
 

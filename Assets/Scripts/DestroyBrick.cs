@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +6,11 @@ public class DestroyBrick : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ °øÀÎÁö È®ÀÎ
+        // ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ê°€ ê³µì¸ì§€ í™•ì¸
         if (collision.gameObject.CompareTag("Ball"))
         {
-            // º®µ¹ Á¦°Å
+            // ë²½ëŒ ì œê±°
             Destroy(gameObject);
         }
     }
-
 }
