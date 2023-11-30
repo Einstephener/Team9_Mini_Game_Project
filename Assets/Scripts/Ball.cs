@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D m_rigidBody;
-    public float m_speed = 0;
+    public float m_speed;
     public AudioClip clip;
     private AudioSource audioSource;
 
@@ -31,12 +31,6 @@ public class Ball : MonoBehaviour
         float y = 1;
 
         m_rigidBody.velocity = new Vector2(x* m_speed, y* m_speed);
-    }
-    public void Reset()
-    {
-        m_rigidBody.velocity = Vector2.zero;
-        transform.position = Vector2.zero;
-        Launch();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

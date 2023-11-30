@@ -35,18 +35,9 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); 
     }
 
-    private void Update()
-    {
-        if(Input.GetKey(Spacebar))
-        {
-            BallAdd();
-        }
-    }
-
     private void Start()
     {
-        Instantiate(m_ball);
-        Instantiate(m_playerPaddle);
+        BallAdd();
     }
 
     public void BallAdd()
