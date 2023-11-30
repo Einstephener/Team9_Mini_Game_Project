@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI player1Text;
     public TextMeshProUGUI player2Text;
 
+    [Header("LimitTime")]
+    public float limitTime_stage;
+
+    [Header("Life")]
+    public int playerLife;
     private void Awake()
     {
         if (I != null) 
