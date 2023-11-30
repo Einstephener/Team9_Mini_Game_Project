@@ -9,16 +9,15 @@ public class GetDoubleItemScript : MonoBehaviour
     public float newBallSpeed = 5f;
 
     private void OnTriggerEnter2D(Collider2D other)
-    {
+    {   //부딪힌 오브젝트의 태그가 Paddle인지 확인
         if (other.CompareTag("Paddle"))
         {
-            // 현재 씬에서 DoubleItem을 가진 Paddle의 위치
             Vector3 paddlePosition = other.transform.position;
 
-            // 더블 아이템을 통해 늘어낼 공의 갯수만큼 반복
+            // DoubleItem을 통해 늘어날 공의 갯수만큼 반복
             for (int i = 0; i < numberOfBallsToAdd; i++)
             {
-                // 현재 위치에서 새로운 공 생성
+                // 현재 패들 위치에서 새로운 공 생성
                 GameObject newBall = Instantiate(Ball, paddlePosition, Quaternion.identity);
 
                 // 생성된 공에 대한 초기화 작업 수행
