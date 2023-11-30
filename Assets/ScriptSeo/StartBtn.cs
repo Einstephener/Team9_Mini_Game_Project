@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class StartBtn : MonoBehaviour
 {
+
+    public AudioSource clickSound;
+    public AudioClip clickMusic;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        clickSound.clip = clickMusic;
+        clickSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,6 +25,14 @@ public class StartBtn : MonoBehaviour
 
     public void GameStart()
     {
+        clickSound.Play();
+
+        Invoke("GoToSampleScene", 1.5f);
+    }
+
+    void GoToSampleScene()
+    {
+        // ª˘«√ æ¿¿∏∑Œ ¿Ãµø«’¥œ¥Ÿ.
         SceneManager.LoadScene("SampleScene");
     }
 }

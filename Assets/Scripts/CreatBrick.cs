@@ -1,48 +1,42 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CreatBrick : MonoBehaviour
 {
-    //int cardStocks = 0;
-    //int difficult = 1;
-    //int cardsLeft = 0;
-    //public GameObject brick;
-    //public GameObject bricks;
-    //bool[] check = new bool[0];
-    //void Start()
-    //{
-    //    cardStocks = 7 * (3 + difficult);
-    //    ÀÚ¸®°¡ ³²¾ÆÀÖ´ÂÁö È®ÀÎÇÏ´Â º¯¼ö
-    //    cardsLeft = cardStocks;
-    //    check = new bool[cardStocks];
-    //    for (int i = 0; i < cardStocks; i++)
-    //    {
-    //        check[i] = false;
-    //    }
-    //    Time.timeScale = 1.0f;
-    //    for (int i = 0; i < (cardStocks - 1); i++)
-    //    {
-    //        GenerateBrick(i);
-    //    }
-    //}
-    //void GenerateBrick(int i)
-    //{
-    //    int rand = Random.Range(0, cardStocks);
-    //    if (check[rand] == false)
-    //    {
-    //        check[rand] = true;
-    //        GameObject newCard = Instantiate(brick);
-    //        newCard.transform.parent = GameObject.Find("Bricks").transform;
-    //        float x = (rand % 4) * 1.4f - 2.1f;
-    //        float y = -(rand / 4) * 1.4f + (0.8f + 0.4f * difficult);
-    //        newCard.transform.position = new Vector3(x, y, 0);
-    //    }
-    //}
-
-    //Update is called once per frame
-    //void Update()
-    //{
-
-    //}
+    int brickStocks = 0;
+    int difficult = 1;
+    int bricksLeft = 0;
+    public GameObject brick;
+    public GameObject bricks;
+    bool[] check = new bool[0];
+    void Start()
+    {
+        brickStocks = 7 * (3 + difficult);
+        //ìžë¦¬ê°€ ë‚¨ì•„ìžˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜
+        bricksLeft = brickStocks;
+        check = new bool[brickStocks];
+        for (int i = 0; i < brickStocks; i++)
+        {
+            check[i] = false;
+        }
+        Time.timeScale = 1.0f;
+        for (int i = 0; i < (brickStocks - 1); i++)
+        {
+            GenerateBrick(i);
+        }
+    }
+    void GenerateBrick(int i)
+    {
+        int rand = Random.Range(0, brickStocks);
+        if (check[rand] == false)
+        {
+            check[rand] = true;
+            GameObject newCard = Instantiate(brick);
+            newCard.transform.parent = GameObject.Find("Bricks").transform;
+            float x = (rand % 7) * 3f - 9f;
+            float y = (rand / 7) * 2f + 3f;
+            newCard.transform.position = new Vector3(x, y, 0);
+        }
+    }
 }
