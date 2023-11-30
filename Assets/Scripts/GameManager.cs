@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI player1Text;
     public TextMeshProUGUI player2Text;
 
-    private int player1Score;
-    private int player2Score;
-
+    
+    public void BallDead()
+    {
+        //¸ñ¼û -1
+        ResetPosition();
+    }
     private void ResetPosition()
     {
         m_ball.Reset();
