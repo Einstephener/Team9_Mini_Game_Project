@@ -5,12 +5,12 @@ using UnityEngine;
 public class audioManager : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip bgmusic;
+    public AudioClip bgMusic;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource.clip = bgmusic;
+        audioSource.clip = bgMusic;
         audioSource.Play();
     }
 
