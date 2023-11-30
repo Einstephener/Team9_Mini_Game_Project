@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    public bool isPlayer1;
-    public float speed;
-    public Rigidbody2D rigidbody;
+    public float m_speed;
+    public Rigidbody2D m_rigidBody;
 
-    public KeyCode Up;
-    public KeyCode Down;
+    public KeyCode Left;
+    public KeyCode Right;
 
     private float movement;
     private Vector3 startPosition;
@@ -17,21 +16,21 @@ public class Paddle : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
-        rigidbody = GetComponent<Rigidbody2D>();
+        m_rigidBody = GetComponent<Rigidbody2D>();
     }
 
     
     void Update()
     {
         movement = 0f;
-        if(Input.GetKey(Up)) { movement += 1f; }
-        if(Input.GetKey(Down)) { movement -= 1f; }
-        rigidbody.velocity = new Vector2(0, movement * speed);    
+        if(Input.GetKey(Left)) { movement -= 1f; }
+        if(Input.GetKey(Right)) { movement += 1f; }
+        m_rigidBody.velocity = new Vector2(movement * m_speed, 0);    
     }
 
     public void Reset()
     {
-        rigidbody.velocity = Vector3.zero;
+        m_rigidBody.velocity = Vector3.zero;
         transform.position = startPosition;
     }
 }
