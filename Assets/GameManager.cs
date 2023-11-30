@@ -6,15 +6,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Ball")]
-    public Ball ball;
+    public Ball m_ball;
 
-    [Header("Player 1")]
-    public Paddle player1Paddle;
-    public Goal player1Goal;
-
-    [Header("Player 2")]
-    public Paddle player2Paddle;
-    public Goal player2Goal;
+    [Header("Paddle")]
+    public Paddle m_playerPaddle;
 
     [Header("UI")]
     public TextMeshProUGUI player1Text;
@@ -23,24 +18,9 @@ public class GameManager : MonoBehaviour
     private int player1Score;
     private int player2Score;
 
-    public void Player1Scored()
-    {
-        player1Score++;
-        player1Text.text = player1Score.ToString();
-        ResetPosition();
-    }
-
-    public void Player2Scored()
-    {
-        player2Score++;
-        player2Text.text = player2Score.ToString();
-        ResetPosition();
-    }
-
     private void ResetPosition()
     {
-        ball.Reset();
-        player1Paddle.Reset();
-        player2Paddle.Reset();        
+        m_ball.Reset();
+        m_playerPaddle.Reset();
     }
 }
