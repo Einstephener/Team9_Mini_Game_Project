@@ -12,7 +12,6 @@ public class GetDoubleItemScript : MonoBehaviour
     {
         if (other.CompareTag("Paddle"))
         {
-            // 현재 씬에서 DoubleItem을 가진 Paddle의 위치
             Vector3 paddlePosition = other.transform.position;
 
             // 더블 아이템을 통해 늘어낼 공의 갯수만큼 반복

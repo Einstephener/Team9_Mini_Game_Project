@@ -1591,6 +1591,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 970424356308219126, guid: a4913f2bbd2b0a64f9ce3efd4cc1d0a5, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1558958775570005709, guid: a4913f2bbd2b0a64f9ce3efd4cc1d0a5, type: 3}
       propertyPath: m_Name
       value: Ball
