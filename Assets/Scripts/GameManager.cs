@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager I;
 
     [Header("Ball")]
-    public Ball m_ball;
+    public GameObject m_ball;
 
     [Header("Paddle")]
-    public Paddle m_playerPaddle;
+    public GameObject m_playerPaddle;
 
     [Header("UI")]
     public TextMeshProUGUI player1Text;
@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Life")]
     public int playerLife;
+
+    
     private void Awake()
     {
         if (I != null) 
@@ -32,14 +34,21 @@ public class GameManager : MonoBehaviour
         I = this; 
         DontDestroyOnLoad(gameObject); 
     }
+
+    private void Start()
+    {
+        BallAdd();
+    }
+
+    public void BallAdd()
+    {
+        Instantiate(m_ball);
+    }
+
     public void BallDead()
     {
-        //��� -1
-        ResetPosition();
-    }
-    private void ResetPosition()
-    {
-        m_ball.Reset();
-        //m_playerPaddle.Reset();
+        //라이프 포인트 -1
+     
+
     }
 }

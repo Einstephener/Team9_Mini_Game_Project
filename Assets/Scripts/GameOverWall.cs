@@ -11,6 +11,7 @@ public class GameOverWall : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             Debug.Log("°ø ¶³¾îÁü");
+            Destroy(collision.gameObject);
             GameManager.I.BallDead();
         }    
     }

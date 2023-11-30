@@ -11,14 +11,11 @@ public class Paddle : MonoBehaviour
     public KeyCode Right;
 
     private float movement;
-    private Vector3 startPosition;
 
     void Start()
     {
-        startPosition = transform.position;
         m_rigidBody = GetComponent<Rigidbody2D>();
     }
-
     
     void Update()
     {

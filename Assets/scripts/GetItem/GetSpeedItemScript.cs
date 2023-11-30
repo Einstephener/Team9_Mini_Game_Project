@@ -12,15 +12,15 @@ public class GetSpeedItemScript : MonoBehaviour
         {
             // 현재 씬에서 모든 Ball 오브젝트를 찾아옴
             Ball[] balls = FindObjectsOfType<Ball>();
-
+            
             // 찾아온 모든 Ball 오브젝트의 속도를 두 배로 조절
             foreach (Ball ball in balls)
             {
                 if (ball != null)
                 {
-                    Debug.Log("전 속도 : " + ball.speed);
-                    ball.speed *= ballSpeedMultiplier;
-                    Debug.Log("바뀐 속도: " + ball.speed);
+                    Debug.Log("전 속도 : " + ball.m_speed);
+                    ball.SetSpeed(2);
+                    Debug.Log("바뀐 속도: " + ball.m_speed);
                 }
             }
 
