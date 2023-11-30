@@ -95,7 +95,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 773708034183738670}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a4abe03729320c54e9ff28a9e476f07c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -143,4 +143,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eeae980eee5ab84f8fdf35c86b68cd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}

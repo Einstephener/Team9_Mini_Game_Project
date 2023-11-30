@@ -47,13 +47,8 @@ public class GameManager : MonoBehaviour
 
     public void BallDead()
     {
-        //��� -1
-        ResetPosition();
-    }
+        //라이프 포인트 -1
+     
 
-    private void ResetPosition()
-    {
-        //m_ball.Reset();
-        //m_playerPaddle.Reset();
     }
 }
