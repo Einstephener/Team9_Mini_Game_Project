@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GetSpeedItemScript : MonoBehaviour
 {
-    public float ballSpeedMultiplier = 1.5f;
-
     private void OnTriggerEnter2D(Collider2D other)
     {   //부딪힌 오브젝트의 태그가 Paddle인지 확인
         if (other.CompareTag("Paddle"))
