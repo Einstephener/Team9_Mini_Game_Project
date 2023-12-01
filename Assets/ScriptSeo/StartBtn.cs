@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,7 +32,7 @@ public class StartBtn : MonoBehaviour
 
     void GoToSampleScene()
     {
-        // »ùÇÃ ¾ÀÀ¸·Î ÀÌµ¿ÇÕ´Ï´Ù.
+        // ìƒ˜í”Œ ì”¬ìœ¼ë¡œ ì´ë™í•©ë‹ˆë‹¤.
         SceneManager.LoadScene("SampleScene");
     }
 }

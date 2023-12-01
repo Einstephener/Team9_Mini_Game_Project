@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,10 +7,10 @@ public class GameOverWall : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Ãæµ¹ÇÑ ¿ÀºêÁ§Æ®°¡ °øÀÎÁö È®ÀÎ
+        // ì¶©ëŒí•œ ì˜¤ë¸Œì íŠ¸ê°€ ê³µì¸ì§€ í™•ì¸
         if (collision.gameObject.CompareTag("Ball"))
         {
-            Debug.Log("°ø ¶³¾îÁü");
+            Debug.Log("ê³µ ë–¨ì–´ì§");
             Destroy(collision.gameObject);
             GameManager.I.BallDead();
         }    
