@@ -335,9 +335,9 @@ MonoBehaviour:
   totalBrick: 0
   destroyBrickNum: 0
   getPassivePanel: {fileID: 802836097}
-  PassiveBtn1: {fileID: 1155055417}
-  PassiveBtn2: {fileID: 1457779606}
-  PassiveBtn3: {fileID: 1509947694}
+  PassiveBtn1: {fileID: 1155055419}
+  PassiveBtn2: {fileID: 1457779609}
+  PassiveBtn3: {fileID: 1509947697}
   passiveText1: {fileID: 1107132908}
   passiveText2: {fileID: 1741742785}
   passiveText3: {fileID: 1538037258}
