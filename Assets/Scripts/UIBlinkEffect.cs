@@ -7,12 +7,11 @@ public class UIBlinkEffect : MonoBehaviour
 {
     Text text;
 
-    void Awake()
+    private void OnEnable()
     {
         text = GetComponent<Text>();
         StartCoroutine(FadeTextToFullAlpha());
     }
-
     public IEnumerator FadeTextToFullAlpha() // 알파값 0에서 1로 전환
     {
         text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
