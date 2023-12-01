@@ -18,7 +18,7 @@ public class Passive : MonoBehaviour
     public void DoubleSpeed()
     {
         int num;
-        num = GameManager.I.lv1;
+        num = GameManager.I.lv2;
         Ball[] balls = FindObjectsOfType<Ball>();
 
         // 찾아온 모든 Ball 오브젝트의 속도를 두 배로 조절

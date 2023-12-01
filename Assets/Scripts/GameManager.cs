@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_ball;
 
     [Header("Paddle")]
-    public GameObject m_playerPaddle;
+    public Paddle m_playerPaddle;
 
     [Header("LimitTime")]
     public float limitTime_stage;
@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Passive")]
     public GameObject getPassivePanel;
-    public GameObject PassiveBtn1;
-    public GameObject PassiveBtn2;
-    public GameObject PassiveBtn3;
+    public Button PassiveBtn1;
+    public Button PassiveBtn2;
+    public Button PassiveBtn3;
     public Text passiveText1;
     public Text passiveText2;
     public Text passiveText3;
@@ -82,12 +82,11 @@ public class GameManager : MonoBehaviour
         oneLifeLose = true;
      
     }
-    public void GetPassive()
+    public void IsLevelOver()
     {
         Debug.Log("게임 매니저까지는 옴");
         if (destroyBrickNum == 10) // 아이템 획득 기준점을 10개로 잡음. 수정가능.
         {
-
             Debug.Log("아이템 획득");
 
             destroyBrickNum -= 10;
