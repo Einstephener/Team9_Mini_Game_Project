@@ -11,6 +11,21 @@ public class DestroyBrick : MonoBehaviour
         {
             // 벽돌 제거
             Destroy(gameObject);
+
+            Debug.Log("number+1");
+            GameManager.I.destroyBrickNum++;
+            if (GameManager.I.destroyBrickNum > 9)
+            {
+                GameManager.I.passiveText1.text = "LV" + GameManager.I.lv1;
+                GameManager.I.passiveText2.text = "LV" + GameManager.I.lv2;
+                GameManager.I.passiveText3.text = "LV" + GameManager.I.lv3;
+                GameManager.I.getPassivePanel.SetActive(true);
+                Time.timeScale = 0f;
+                GameManager.I.GetPassive();
+            }
+
         }
+
     }
+
 }
