@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,14 +21,14 @@ public class Passive : MonoBehaviour
         num = GameManager.I.lv2;
         Ball[] balls = FindObjectsOfType<Ball>();
 
-        // Ã£¾Æ¿Â ¸ğµç Ball ¿ÀºêÁ§Æ®ÀÇ ¼Óµµ¸¦ µÎ ¹è·Î Á¶Àı
+        // ì°¾ì•„ì˜¨ ëª¨ë“  Ball ì˜¤ë¸Œì íŠ¸ì˜ ì†ë„ë¥¼ ë‘ ë°°ë¡œ ì¡°ì ˆ
         foreach (Ball ball in balls)
         {
             if (ball != null)
             {
-                Debug.Log("Àü ¼Óµµ : " + ball.m_speed);
+                Debug.Log("ì „ ì†ë„ : " + ball.m_speed);
                 ball.SetSpeed(2);
-                Debug.Log("¹Ù²ï ¼Óµµ: " + ball.m_speed);
+                Debug.Log("ë°”ë€ ì†ë„: " + ball.m_speed);
             }
         }
         num++;
@@ -43,7 +43,7 @@ public class Passive : MonoBehaviour
         num = GameManager.I.lv3;
         num++;
         GameManager.I.lv3 = num;
-        //¹ßÆÇ ±æÀÌ ±æ¾îÁö´Â ¸Ş¼­µå
+        //ë°œíŒ ê¸¸ì´ ê¸¸ì–´ì§€ëŠ” ë©”ì„œë“œ
         GameManager.I.getPassivePanel.SetActive(false);
         Time.timeScale = 1f;
     }
