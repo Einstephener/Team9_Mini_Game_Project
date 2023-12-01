@@ -86,7 +86,7 @@ public class GetItemManager : MonoBehaviour
             // 현재의 SpeedItem 오브젝트를 파괴
             Destroy(SpeedItem);
         }
-        else if (other.CompareTag("ㅁ"))
+        else if (other.CompareTag("DoubleItem"))
         {
             // DoubleItem을 통해 늘어날 공의 갯수만큼 반복
             for (int i = 0; i < numberOfBallsToAdd; i++)
