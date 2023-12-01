@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIcontroller : MonoBehaviour
 {
@@ -31,7 +32,18 @@ public class UIcontroller : MonoBehaviour
     void isTime()//제한시간
     {
         stageLimitTime -= Time.deltaTime;
+        stageLimitTime = Mathf.Max(stageLimitTime, 0);
         limitTimeText.text = stageLimitTime.ToString("N2");
+
+        if (stageLimitTime <= 0)
+        {
+            LoadStartScene();
+        }
+    }
+
+    void LoadStartScene()
+    {
+        SceneManager.LoadScene("StartScene");
     }
     void viewLife()// 목숨 보여주는 부분
     {
