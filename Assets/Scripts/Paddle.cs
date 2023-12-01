@@ -19,11 +19,12 @@ public class Paddle : MonoBehaviour
     
     void Update()
     {
-        movement = 0f;
-        if(Input.GetKey(Left)) { movement -= 1f; }
-        if(Input.GetKey(Right)) { movement += 1f; }
-        m_rigidBody.velocity = new Vector2(movement * m_speed, 0);    
+        if (!GameManager.I.oneLifeLose)
+        {
+            movement = 0f;
+            if (Input.GetKey(Left)) { movement -= 1f; }
+            if (Input.GetKey(Right)) { movement += 1f; }
+            m_rigidBody.velocity = new Vector2(movement * m_speed, 0);
+        }
     }
-
-
 }
