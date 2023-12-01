@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_ball;
 
     [Header("Paddle")]
-    public GameObject m_playerPaddle;
+    public Paddle m_playerPaddle;
 
     [Header("UI")]
     public TextMeshProUGUI player1Text;
@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         BallAdd();
+       
+        m_playerPaddle.AddSize(3, 2);
     }
 
     public void BallAdd()
