@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject m_ball;
 
     [Header("Paddle")]
-    public GameObject m_playerPaddle;
+    public Paddle m_playerPaddle;
 
     [Header("LimitTime")]
     public float limitTime_stage;
