@@ -1,31 +1,31 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GetItemManager : MonoBehaviour
 {
-    //ÆĞµé ±âÁØÀ¸·Î ¸¸µé¾ú½À´Ï´Ù
+    //íŒ¨ë“¤ ê¸°ì¤€ìœ¼ë¡œ ë§Œë“¤ì—ˆìŠµë‹ˆë‹¤
     public GameObject Ball;
     public GameObject SpeedItem;
     public GameObject DoubleItem;
     public GameObject TransparentItem;
 
-    // °¹¼ö ¾ÆÀÌÅÛ
+    // ê°¯ìˆ˜ ì•„ì´í…œ
     public int numberOfBallsToAdd = 1;
     public float newBallSpeed = 5f;
 
-    //Åõ¸íµµ ÀüÈ¯ ¾ÆÀÌÅÛ
-    public float transparentDuration = 3.0f;  // Åõ¸íµµ¸¦ À¯ÁöÇÒ ½Ã°£
-    public float transparencyValue = 0.2f;    // ¼³Á¤ÇÏ°í ½ÍÀº Åõ¸íµµÀÇ ¼öÄ¡
+    //íˆ¬ëª…ë„ ì „í™˜ ì•„ì´í…œ
+    public float transparentDuration = 3.0f;  // íˆ¬ëª…ë„ë¥¼ ìœ ì§€í•  ì‹œê°„
+    public float transparencyValue = 0.2f;    // ì„¤ì •í•˜ê³  ì‹¶ì€ íˆ¬ëª…ë„ì˜ ìˆ˜ì¹˜
     private bool IsTransparent = false;
-    private SpriteRenderer ballSpriteRenderer;  // °øÀÇ SpriteRenderer ÄÄÆ÷³ÍÆ®
+    private SpriteRenderer ballSpriteRenderer;  // ê³µì˜ SpriteRenderer ì»´í¬ë„ŒíŠ¸
 
     private void Update()
     {
-        Ball[] balls = FindObjectsOfType<Ball>();// ¸ğµç °øÀ» Ã£¾Æ ¸ğµç °øÀÇ Åõ¸íµµ µÇµ¹¸®±â
+        Ball[] balls = FindObjectsOfType<Ball>();// ëª¨ë“  ê³µì„ ì°¾ì•„ ëª¨ë“  ê³µì˜ íˆ¬ëª…ë„ ë˜ëŒë¦¬ê¸°
         if (IsTransparent)
         {
-            // Åõ¸íµµ°¡ ¼³Á¤µÈ ½Ã°£ÀÌ Áö³ª¸é ¿ø·¡´ë·Î µ¹¾Æ°¡±â
+            // íˆ¬ëª…ë„ê°€ ì„¤ì •ëœ ì‹œê°„ì´ ì§€ë‚˜ë©´ ì›ë˜ëŒ€ë¡œ ëŒì•„ê°€ê¸°
             transparentDuration -= Time.deltaTime;
             if (transparentDuration <= 0)
             {
@@ -52,30 +52,30 @@ public class GetItemManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("TransparentItem"))  //´êÀº ¾ÆÀÌÅÛÀÌ Åõ¸íµµ ¾ÆÀÌÅÛÀÏ ¶§
+        if (other.CompareTag("TransparentItem"))  //ë‹¿ì€ ì•„ì´í…œì´ íˆ¬ëª…ë„ ì•„ì´í…œì¼ ë•Œ
         {
 
-            Ball[] balls = FindObjectsOfType<Ball>();//¸ğµç °øÀÇ
+            Ball[] balls = FindObjectsOfType<Ball>();//ëª¨ë“  ê³µì˜
             foreach (Ball ball in balls)
             {
                 IsTransparent = true;
-                ballSpriteRenderer = ball.GetComponent<SpriteRenderer>();//SpriteRenderer¸¦ Ã£¾Æ
-                // ¾ÆÀÌÅÛÀ» ¸ÔÀ¸¸é °øÀÇ Åõ¸íµµ Á¶Àı
+                ballSpriteRenderer = ball.GetComponent<SpriteRenderer>();//SpriteRendererë¥¼ ì°¾ì•„
+                // ì•„ì´í…œì„ ë¨¹ìœ¼ë©´ ê³µì˜ íˆ¬ëª…ë„ ì¡°ì ˆ
                 if (ballSpriteRenderer != null)
                 {
                     IsTransparent = true;
                     Debug.LogError(IsTransparent);
-                    SetBallTransparent(0.2f);  // Åõ¸íµµ¸¦ ¿øÇÏ´Â °ª(0.2f)À¸·Î Á¶Àı
+                    SetBallTransparent(0.2f);  // íˆ¬ëª…ë„ë¥¼ ì›í•˜ëŠ” ê°’(0.2f)ìœ¼ë¡œ ì¡°ì ˆ
                     Destroy(TransparentItem);
                 }
             }
         }
-        else if (other.CompareTag("SpeedItem"))//´êÀº ¾ÆÀÌÅÛÀÌ SpeedItemÀÏ °æ¿ì
+        else if (other.CompareTag("SpeedItem"))//ë‹¿ì€ ì•„ì´í…œì´ SpeedItemì¼ ê²½ìš°
         {
-            // ÇöÀç ¾À¿¡¼­ ¸ğµç Ball ¿ÀºêÁ§Æ®¸¦ Ã£¾Æ¿È
+            // í˜„ì¬ ì”¬ì—ì„œ ëª¨ë“  Ball ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì•„ì˜´
             Ball[] balls = FindObjectsOfType<Ball>();
 
-            // Ã£¾Æ¿Â ¸ğµç Ball ¿ÀºêÁ§Æ®ÀÇ ¼Óµµ¸¦ µÎ ¹è·Î Á¶Àı
+            // ì°¾ì•„ì˜¨ ëª¨ë“  Ball ì˜¤ë¸Œì íŠ¸ì˜ ì†ë„ë¥¼ ë‘ ë°°ë¡œ ì¡°ì ˆ
             foreach (Ball ball in balls)
             {
                 if (ball != null)
@@ -83,17 +83,17 @@ public class GetItemManager : MonoBehaviour
                     ball.SetSpeed(2);
                 }
             }
-            // ÇöÀçÀÇ SpeedItem ¿ÀºêÁ§Æ®¸¦ ÆÄ±«
+            // í˜„ì¬ì˜ SpeedItem ì˜¤ë¸Œì íŠ¸ë¥¼ íŒŒê´´
             Destroy(SpeedItem);
         }
-        else if (other.CompareTag("DoubleItem"))
+        else if (other.CompareTag("ã…"))
         {
-            // DoubleItemÀ» ÅëÇØ ´Ã¾î³¯ °øÀÇ °¹¼ö¸¸Å­ ¹İº¹
+            // DoubleItemì„ í†µí•´ ëŠ˜ì–´ë‚  ê³µì˜ ê°¯ìˆ˜ë§Œí¼ ë°˜ë³µ
             for (int i = 0; i < numberOfBallsToAdd; i++)
             {
                 GameManager.I.BallAdd();
             }
-            // ÇöÀçÀÇ DoubleItem ¿ÀºêÁ§Æ®¸¦ ÆÄ±«
+            // í˜„ì¬ì˜ DoubleItem ì˜¤ë¸Œì íŠ¸ë¥¼ íŒŒê´´
             Destroy(DoubleItem);
         }
     }
