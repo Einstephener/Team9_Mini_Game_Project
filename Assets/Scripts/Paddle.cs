@@ -18,7 +18,7 @@ public class Paddle : MonoBehaviour
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
     }
-    
+
     void Update()
     {
         movement = 0.0f;
@@ -49,5 +49,4 @@ public class Paddle : MonoBehaviour
 
         this.transform.localScale -= new Vector3(num, 0.0f, 0.0f);
     }
-
 }

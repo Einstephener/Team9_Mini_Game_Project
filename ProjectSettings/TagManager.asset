@@ -7,6 +7,9 @@ TagManager:
   - Brick
   - Ball
   - Paddle
+  - SpeedItem
+  - DoubleItem
+  - TransparentItem
   layers:
   - Default
   - TransparentFX

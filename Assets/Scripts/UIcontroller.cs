@@ -1,8 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIcontroller : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UIcontroller : MonoBehaviour
     private int maxlife;
 
     public Text limitTimeText;
+    public GameObject reStart_LifePanel;
 
     public GameObject[] lives;
 
@@ -20,22 +22,37 @@ public class UIcontroller : MonoBehaviour
     }
     void Update()
     {
+        UIStateCheck();
         isTime();
         viewLife();
     }
-    void UISetting()//ui¿¡ ÇÊ¿äÇÑ °ªµé ÃÊ±âÈ­ÇÏ´Â ºÎºĞ
+    void UISetting()//uiì— í•„ìš”í•œ ê°’ë“¤ ì´ˆê¸°í™”í•˜ëŠ” ë¶€ë¶„
     {
         stageLimitTime = GameManager.I.limitTime_stage;
         maxlife = GameManager.I.playerLife;
     }
-    void isTime()//Á¦ÇÑ½Ã°£
+    void isTime()//ì œí•œì‹œê°„
     {
-        stageLimitTime -= Time.deltaTime;
-        limitTimeText.text = stageLimitTime.ToString("N2");
+        if (!GameManager.I.oneLifeLose)
+        {
+            stageLimitTime -= Time.deltaTime;
+            stageLimitTime = Mathf.Max(stageLimitTime, 0);
+            limitTimeText.text = stageLimitTime.ToString("N2");
+
+            if (stageLimitTime <= 0)
+            {
+                LoadStartScene();
+            }
+        }
     }
-    void viewLife()// ¸ñ¼û º¸¿©ÁÖ´Â ºÎºĞ
+
+    void LoadStartScene()
     {
-        // ¸ñ¼û 3°³·Î °¡Á¤ÇÏ°í ¸¸µë Ãß°¡½Ã À¯´ÏÆ¼¿¡¼­ ¸ñ¼û ¿ÀºêÁ§Æ® Ãß°¡ ÇÊ¿ä
+        SceneManager.LoadScene("StartScene");
+    }
+    void viewLife()// ëª©ìˆ¨ ë³´ì—¬ì£¼ëŠ” ë¶€ë¶„
+    {
+        // ëª©ìˆ¨ 3ê°œë¡œ ê°€ì •í•˜ê³  ë§Œë“¬ ì¶”ê°€ì‹œ ìœ ë‹ˆí‹°ì—ì„œ ëª©ìˆ¨ ì˜¤ë¸Œì íŠ¸ ì¶”ê°€ í•„ìš”
         currentlife = GameManager.I.playerLife;
         if (currentlife <= maxlife)
         {
@@ -47,6 +64,13 @@ public class UIcontroller : MonoBehaviour
                 }
                 lives[i].gameObject.SetActive(false);
             }
+        }
+    }
+    void UIStateCheck()
+    {
+        if(GameManager.I.oneLifeLose == true)
+        {
+            reStart_LifePanel.SetActive(true);
         }
     }
 }
