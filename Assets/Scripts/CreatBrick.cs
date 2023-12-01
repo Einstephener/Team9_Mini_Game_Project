@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreatBrick : MonoBehaviour
 {
@@ -40,5 +41,36 @@ public class CreatBrick : MonoBehaviour
         float y = (rand / 7) * 2f + 3f;
 
         newCard.transform.position = new Vector3(x, y, 0);
+    }
+
+    //여기는 모든 브릭 제거시 클리어 부분 -> 미들씬
+    void CheckAllBricksDestroyed()
+    {
+        // 모든 벽돌이 있는지 검사
+        bool allDestroy = true;
+        foreach (Transform brick in bricks.transform)
+        {
+            if (brick != null)
+            {
+                allDestroy = false;
+                break;
+            }
+        }
+
+        if (allDestroy)
+        {
+            // 모든 벽돌이 제거되었을 때 처리할 로직
+            GoToMiddleScene(); // 미들 씬으로 이동하는 메서드 호출
+        }
+    }
+
+    void Update()
+    {
+        CheckAllBricksDestroyed();
+    }
+
+    void GoToMiddleScene()
+    {
+        SceneManager.LoadScene("MiddleScene"); // 미들 씬으로 이동하는 코드
     }
 }
