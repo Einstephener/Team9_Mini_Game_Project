@@ -38,8 +38,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         BallAdd();
-       
-        m_playerPaddle.AddSize(3, 2);
     }
 
     public void BallAdd()
