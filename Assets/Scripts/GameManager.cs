@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Boss")]
     public GameObject boss01;
-    public int bossHP;
+    public float bossHP;
 
     [Header("GameState")]
     public bool oneLifeLose;
