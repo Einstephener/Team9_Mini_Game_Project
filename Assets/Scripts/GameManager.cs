@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Ball")]
     public GameObject m_ball;
+    public int ball_Damage;
 
     [Header("Paddle")]
     public Paddle m_playerPaddle;
@@ -36,12 +37,15 @@ public class GameManager : MonoBehaviour
     public int lv3;
     //게임 시작 버튼에 초기화 필요
 
-    public int gameLevel = 1;
 
+    [Header("Boss")]
+    public GameObject boss01;
+    public int bossHP;
 
     [Header("GameState")]
     public bool oneLifeLose;
 
+    public int gameLevel = 1;
     public int ballCount;
     private void Awake()
     {

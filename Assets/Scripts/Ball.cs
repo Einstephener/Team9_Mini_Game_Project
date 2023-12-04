@@ -50,8 +50,13 @@ public class Ball : MonoBehaviour
         {
             Debug.Log("사운드 재생");
             audioSource.PlayOneShot(clip);
-        }
 
+        }
+        else if (collision.gameObject.CompareTag("Boss"))
+        {
+            Debug.Log("보스 공격");
+            GameManager.I.boss01.GetComponent<Boss>().IsDamaged();
+        }
         BallRotation();
     }
 }
