@@ -31,10 +31,23 @@ public class Ball : MonoBehaviour
         float y = 1;
 
         m_rigidBody.velocity = new Vector2(x* m_speed, y* m_speed);
+        BallRotation();
+    }
+
+    //공의 이동방향에 따라 회전
+    private void BallRotation()
+    {
+        Quaternion rot = Quaternion.Euler(0, 0, Mathf.Atan2(m_rigidBody.velocity.y, m_rigidBody.velocity.x) * 57.3f);
+        transform.rotation = rot;
+
+        //테스트용
+        Debug.LogFormat("R = {0} ", Mathf.Atan2(m_rigidBody.velocity.y, m_rigidBody.velocity.x) * 57.3f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        BallRotation();
+
         if (collision.gameObject.CompareTag("Brick"))
         {
             Debug.Log("사운드 재생");
