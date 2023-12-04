@@ -29,6 +29,6 @@ public class NextBtn : MonoBehaviour
 
     void GoToSampleScene()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GoToSampleScene1P");
     }
 }
