@@ -21,7 +21,7 @@ public class Paddle : MonoBehaviour
 
     void Update()
     {
-        movement /= 4;
+        movement = 0;
         m_speed = 20.0f;//기본 이속 20 고정
         if (Input.GetKey(Left)) { movement -= 1.0f; }
         if(Input.GetKey(Right)) { movement += 1.0f; }
@@ -48,13 +48,5 @@ public class Paddle : MonoBehaviour
         yield return new WaitForSeconds(time); // 3초 지연
 
         this.transform.localScale -= new Vector3(num, 0.0f, 0.0f);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            collision.rigidbody.AddForce(new Vector2(movement * m_speed, 0));
-        }
     }
 }
