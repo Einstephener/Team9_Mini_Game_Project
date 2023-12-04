@@ -106,6 +106,7 @@ public class CreatBrick : MonoBehaviour
 
         if (allDestroy)
         {
+            GameManager.I.gameLevel = 2;
             GoToMiddleScene();
         }
     }

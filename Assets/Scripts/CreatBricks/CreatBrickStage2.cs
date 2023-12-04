@@ -106,6 +106,7 @@ public class CreatBrickStage2 : MonoBehaviour
 
         if (allDestroy)
         {
+            GameManager.I.gameLevel = 3; 
             GoToMiddleScene(); 
         }
     }

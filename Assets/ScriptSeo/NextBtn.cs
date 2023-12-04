@@ -7,28 +7,38 @@ public class NextBtn : MonoBehaviour
 {
     public AudioSource clickSound;
     public AudioClip clickMusic;
-    // Start is called before the first frame update
+    private int level;
     void Start()
     {
         clickSound.clip = clickMusic;
         clickSound = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void GameStart()
     {
         clickSound.Play();
 
-        Invoke("GoToSampleScene", 1.5f);
+        Invoke("GoToNextLevel", 1f);
     }
 
-    void GoToSampleScene()
+    void GoToNextLevel()
     {
-        SceneManager.LoadScene("GoToSampleScene1P");
+        level = GameManager.I.gameLevel;
+        if (level == 1)
+        {
+            SceneManager.LoadScene("GoToSampleScene1P");
+        }
+        else if (level == 2)
+        {
+            SceneManager.LoadScene("Stage2");
+        }
+        else if (level == 3)
+        {
+            SceneManager.LoadScene("Stage3");
+        }
+        else if(level == 4)
+        {
+            SceneManager.LoadScene("Stage4(test)");
+        }
     }
 }
