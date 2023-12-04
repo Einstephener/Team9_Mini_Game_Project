@@ -46,12 +46,12 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        BallRotation();
-
         if (collision.gameObject.CompareTag("Brick"))
         {
             Debug.Log("사운드 재생");
             audioSource.PlayOneShot(clip);
         }
+
+        BallRotation();
     }
 }
