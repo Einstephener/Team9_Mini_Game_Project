@@ -22,7 +22,7 @@ public class Paddle : MonoBehaviour
     void Update()
     {
         movement = 0.0f;
-        m_speed = 30.0f;//기본 이속 20 고정
+        m_speed = 20.0f;//기본 이속 20 고정
 
         if (Input.GetKey(Left)) { movement -= 1.0f; }
         if(Input.GetKey(Right)) { movement += 1.0f; }
