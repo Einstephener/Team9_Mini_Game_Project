@@ -40,14 +40,11 @@ public class UIcontroller : MonoBehaviour
 
             if (stageLimitTime <= 0)
             {
-                LoadStartScene();
+                SceneManager.LoadScene("StartScene");
             }
         }
     }
-    void LoadStartScene()
-    {
-        SceneManager.LoadScene("StartScene");
-    }
+
     void viewLife()// 목숨 보여주는 부분
     {
         // 목숨 3개로 가정하고 만듬 추가시 유니티에서 목숨 오브젝트 추가 필요
@@ -67,6 +64,7 @@ public class UIcontroller : MonoBehaviour
         }
         if (inactiveLifeCount >= 3)
         {
+            reStart_LifePanel.SetActive(false);
             SceneManager.LoadScene("StartScene");
         }
         else if (GameManager.I.oneLifeLose)
