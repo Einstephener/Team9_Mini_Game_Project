@@ -22,7 +22,6 @@ public class UIcontroller : MonoBehaviour
     }
     void Update()
     {
-        UIStateCheck();
         isTime();
         viewLife();
     }
@@ -45,7 +44,6 @@ public class UIcontroller : MonoBehaviour
             }
         }
     }
-
     void LoadStartScene()
     {
         SceneManager.LoadScene("StartScene");
@@ -54,21 +52,24 @@ public class UIcontroller : MonoBehaviour
     {
         // 목숨 3개로 가정하고 만듬 추가시 유니티에서 목숨 오브젝트 추가 필요
         currentlife = GameManager.I.playerLife;
-        if (currentlife <= maxlife)
+        int inactiveLifeCount = 0; // 비활성화된 라이프 수를 셈
+        for (int i = 0; i < maxlife; i++)
         {
-            for (int i = 0; i < maxlife - currentlife; i++)
+            if (i < currentlife)
             {
-                if (lives[i] == null)
-                {
-                    break;
-                }
+                lives[i].gameObject.SetActive(true);
+            }
+            else
+            {
                 lives[i].gameObject.SetActive(false);
+                inactiveLifeCount++; // 비활성화된 라이프 수 증가
             }
         }
-    }
-    void UIStateCheck()
-    {
-        if(GameManager.I.oneLifeLose == true)
+        if (inactiveLifeCount >= 3)
+        {
+            SceneManager.LoadScene("StartScene");
+        }
+        else if (GameManager.I.oneLifeLose)
         {
             reStart_LifePanel.SetActive(true);
         }
