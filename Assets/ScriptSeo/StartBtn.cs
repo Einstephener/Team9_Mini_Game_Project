@@ -3,58 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class StartBtn : MonoBehaviour
 {
-    private bool Player2 = false;
+    public Button start1PButton; 
+    public Button start2PButton; 
     public Button ChangePlayer2Button;
     public AudioSource clickSound;
     public AudioClip clickMusic;
 
     void Start()
     {
-        clickSound.clip = clickMusic;
         clickSound = GetComponent<AudioSource>();
-        
-        if (ChangePlayer2Button != null)
-        {
-            ChangePlayer2Button.onClick.AddListener(ChangePlayer2);
-        }
+        clickSound.clip = clickMusic;
+
+        start1PButton.onClick.AddListener(GoToSampleScene1P);
+        start2PButton.onClick.AddListener(GoToSampleScene2P);
     }
 
-    private void Update()
-    {
-        Debug.Log("Player2: " + Player2);
-    }
-    public void GameStart()
+    public void GameStart1P()
     {
         clickSound.Play();
-        Invoke("GoToSampleScene", 1.5f);
+
+        Invoke("GoToSampleScene1P", 1.5f);
+    }
+    public void GameStart2P()
+    {
+        clickSound.Play();
+
+        Invoke("GoToSampleScene2P", 1.5f);
     }
 
-    void GoToSampleScene()
+    void GoToSampleScene1P()
     {
-        if (Player2 == false)
-        {
-            // 샘플 씬으로 이동합니다.
-            SceneManager.LoadScene("SampleScene1P");
-        }
-        else if (Player2 == true)
-        {
-            SceneManager.LoadScene("SampleScene2P");
-        }
-        
+        SceneManager.LoadScene("SampleScene1P");
     }
-    void ChangePlayer2()
+    void GoToSampleScene2P()
     {
-        if (Player2 == false)
-        {
-            Player2 = true;
-        }
-        else if (Player2 == true)
-        {
-            Player2 = false;
-        }
-
+        SceneManager.LoadScene("SampleScene2P");
     }
 }

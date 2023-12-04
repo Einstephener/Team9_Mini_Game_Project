@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class NextBtn : MonoBehaviour
 {
+    public Button start1PButton;
+    public Button start2PButton;
+    public Button ChangePlayer2Button;
     public AudioSource clickSound;
     public AudioClip clickMusic;
     private int level;
     void Start()
     {
-        clickSound.clip = clickMusic;
         clickSound = GetComponent<AudioSource>();
     }
 
@@ -42,3 +46,4 @@ public class NextBtn : MonoBehaviour
         }
     }
 }
+
