@@ -1,38 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class StartBtn : MonoBehaviour
 {
-
+    public Button start1PButton; 
+    public Button start2PButton; 
+    public Button ChangePlayer2Button;
     public AudioSource clickSound;
     public AudioClip clickMusic;
 
-    // Start is called before the first frame update
     void Start()
     {
-        clickSound.clip = clickMusic;
         clickSound = GetComponent<AudioSource>();
+        clickSound.clip = clickMusic;
+
+        start1PButton.onClick.AddListener(GoToSampleScene1P);
+        start2PButton.onClick.AddListener(GoToSampleScene2P);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-    public void GameStart()
+    public void GameStart1P()
     {
         clickSound.Play();
 
-        Invoke("GoToSampleScene", 1.5f);
+        Invoke("GoToSampleScene1P", 1.5f);
+    }
+    public void GameStart2P()
+    {
+        clickSound.Play();
+
+        Invoke("GoToSampleScene2P", 1.5f);
     }
 
-    void GoToSampleScene()
+    void GoToSampleScene1P()
     {
-        // 샘플 씬으로 이동합니다.
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene1P");
+    }
+    void GoToSampleScene2P()
+    {
+        SceneManager.LoadScene("SampleScene2P");
     }
 }

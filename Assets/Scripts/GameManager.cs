@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     public int lv3;
     //게임 시작 버튼에 초기화 필요
 
+    public int gameLevel = 1;
+
 
     [Header("GameState")]
     public bool oneLifeLose;
