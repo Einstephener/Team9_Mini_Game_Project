@@ -15,8 +15,8 @@ public class CreatBrickStage3 : MonoBehaviour
     bool[] check = new bool[0];
     void Start()
     {
-        brick.transform.localScale = new Vector3(0.9f, 0.9f, 0);
-        hardBrick.transform.localScale = new Vector3(0.9f, 0.9f, 0);
+        brick.transform.localScale = new Vector3(1f, 1f, 0);
+        hardBrick.transform.localScale = new Vector3(1f, 1f, 0);
         brickStocks = 9 * (3 + difficult);
         hardBrickStocks = 9 * (difficult - 1);
 
@@ -58,7 +58,7 @@ public class CreatBrickStage3 : MonoBehaviour
         GameObject newCard = Instantiate(brick);
         newCard.transform.parent = GameObject.Find("Bricks").transform;
 
-        float x = (rand % 9)*1.5f - 9f;
+        float x = (rand % 9) * 2f - 9f;
         float y = (rand / 9) * 2f + 3f;
 
         newCard.transform.position = new Vector3(x, y, 0);
@@ -76,8 +76,8 @@ public class CreatBrickStage3 : MonoBehaviour
         GameObject newCard = Instantiate(hardBrick);
         newCard.transform.parent = GameObject.Find("Bricks").transform;
 
-        float x = (rand % 7) * 3f - 9f;
-        float y = (rand / 7) * 2f + 13f;
+        float x = (rand % 9) * 2f - 9f;
+        float y = (rand / 9) * 2f + 13f;
 
         newCard.transform.position = new Vector3(x, y, 0);
     }

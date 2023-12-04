@@ -294,7 +294,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 203092672}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be537185a1d51cd44ae313a457edea3c, type: 3}
+  m_Script: {fileID: 11500000, guid: ba3ace51be6233e43995b5fa8cf4d01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   brick: {fileID: 773708034183738670, guid: 27321ff135aa061459cc98690fa7b1fa, type: 3}
