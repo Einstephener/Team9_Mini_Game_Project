@@ -300,7 +300,7 @@ MonoBehaviour:
   lv2: 0
   lv3: 0
   boss01: {fileID: 1180095217}
-  bossHP: 1000
+  bossHP: 50
   oneLifeLose: 0
   gameLevel: 1
   ballCount: 0
