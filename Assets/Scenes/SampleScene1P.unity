@@ -332,6 +332,8 @@ MonoBehaviour:
   m_ball: {fileID: 1558958775570005709, guid: a4913f2bbd2b0a64f9ce3efd4cc1d0a5, type: 3}
   ball_Damage: 0
   m_playerPaddle: {fileID: 1638124697}
+  Player1Paddle: {fileID: 0}
+  Player2Paddle: {fileID: 0}
   limitTime_stage: 60
   playerLife: 3
   totalBrick: 0
@@ -350,6 +352,7 @@ MonoBehaviour:
   bossHP: 0
   oneLifeLose: 0
   gameLevel: 1
+  gamePlayer: 1
   ballCount: 0
 --- !u!4 &311990408
 Transform:
@@ -2872,9 +2875,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
 --- !u!1 &1674302639
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,8 +76,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 6580066531446387652}
-  m_sprite: {fileID: 5168734487287354622}
   m_speed: 8
+  m_hitsEffect: {fileID: 1558958775570005709, guid: dc85cc24fdd9f9a4abeeebb3a32b3813, type: 3}
+  m_brickEffect: {fileID: 0}
+  m_sprite: {fileID: 5168734487287354622}
   clip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
 --- !u!58 &-318149760474710306
 CircleCollider2D:
@@ -121,7 +123,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558958775570005709}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}

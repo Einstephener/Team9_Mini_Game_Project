@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
     {
         oneLifeLose = true;
     }
+
     public void IsLevelOver()
     {
         Debug.Log("게임 매니저까지는 옴");

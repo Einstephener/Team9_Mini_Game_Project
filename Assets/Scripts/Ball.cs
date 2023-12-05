@@ -4,8 +4,16 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D m_rigidBody;
-    public SpriteRenderer m_sprite;
     public float m_speed;
+
+    [Header("Effects")]
+    public GameObject m_hitsEffect; //공 충돌 이펙트
+    public GameObject m_brickEffect; //벽돌 파괴 이펙트
+
+    [Header("Sprite")]
+    public SpriteRenderer m_sprite;
+
+    [Header("Audio")]
     public AudioClip clip;
     private AudioSource audioSource;
 
@@ -56,20 +64,29 @@ public class Ball : MonoBehaviour
         this.m_sprite.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
+    //공 충돌 이펙트를 생성했다가 0.4초뒤에 없애는 함수
+    IEnumerator CreateHitsEffect(Vector2 point)
+    {
+        GameObject effect = Instantiate(m_hitsEffect);
+        effect.transform.position = new Vector3(point.x, point.y, 0);
+        yield return new WaitForSeconds(0.4f); // n초 지연
+
+        Destroy(effect);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Brick"))
-        {
-            Debug.Log("사운드 재생");
-            audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clip);
 
-        }
-        else if (collision.gameObject.CompareTag("Boss"))
+        if (collision.gameObject.CompareTag("Boss"))
         {
             Debug.Log("보스 공격");
             GameManager.I.boss01.GetComponent<Boss>().IsDamaged();
+        }else
+        {
+            StartCoroutine(CreateHitsEffect(collision.contacts[0].point));
         }
+
         BallRotation();
     }
 }
