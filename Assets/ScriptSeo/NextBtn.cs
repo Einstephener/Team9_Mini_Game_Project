@@ -7,9 +7,6 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class NextBtn : MonoBehaviour
 {
-    public Button start1PButton;
-    public Button start2PButton;
-    public Button ChangePlayer2Button;
     public AudioSource clickSound;
     public AudioClip clickMusic;
     private int level;
@@ -28,21 +25,19 @@ public class NextBtn : MonoBehaviour
     void GoToNextLevel()
     {
         level = GameManager.I.gameLevel;
-        if (level == 1)
+
+        // 씬 이름의 패턴을 정의
+        string sceneNamePattern = "Stage{0}";
+
+        // level이 1 이상이고 4 이하일 때만 처리
+        if (level >= 1 && level <= 4)
         {
-            SceneManager.LoadScene("GoToSampleScene1P");
+            string nextScene = string.Format(sceneNamePattern, level);
+            SceneManager.LoadScene(nextScene);
         }
-        else if (level == 2)
+        if (level == 10)
         {
-            SceneManager.LoadScene("Stage2");
-        }
-        else if (level == 3)
-        {
-            SceneManager.LoadScene("Stage3");
-        }
-        else if(level == 4)
-        {
-            SceneManager.LoadScene("Stage4(test)");
+            SceneManager.LoadScene("Stage_Boss");
         }
     }
 }

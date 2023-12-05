@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CreatBrick : MonoBehaviour
+public class CreatBrickStage1 : MonoBehaviour
 {
     int brickStocks = 0;
     int hardBrickStocks = 0;

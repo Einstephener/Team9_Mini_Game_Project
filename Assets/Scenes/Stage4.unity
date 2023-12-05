@@ -1697,6 +1697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 469469044}
+  - component: {fileID: 469469045}
   m_Layer: 0
   m_Name: Bricks
   m_TagString: Untagged
@@ -1810,6 +1811,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469469045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469469043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ffed8a708b8104587d8ae5962dbf8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brick: {fileID: 773708034183738670, guid: 27321ff135aa061459cc98690fa7b1fa, type: 3}
+  hardBrick: {fileID: 5658897649050483010, guid: ad17f18bc5c87ba4c9230c5d61c6ebd1, type: 3}
+  bricks: {fileID: 469469043}
 --- !u!1001 &489303953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3371,9 +3387,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
 --- !u!61 &899118700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7371,9 +7384,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
 --- !u!1001 &1670850842
 PrefabInstance:
   m_ObjectHideFlags: 0
