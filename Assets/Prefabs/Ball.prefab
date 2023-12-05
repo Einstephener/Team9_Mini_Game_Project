@@ -48,9 +48,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 3b7acf40b83538f499bac5ab47259d2a, type: 2}
   m_IncludeLayers:
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 6580066531446387652}
+  m_sprite: {fileID: 5168734487287354622}
   m_speed: 8
   clip: {fileID: 8300000, guid: b43d102aac6b145468dcaa94a5cccae1, type: 3}
 --- !u!58 &-318149760474710306
