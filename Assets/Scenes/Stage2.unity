@@ -1184,9 +1184,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
 --- !u!61 &899118700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2940,9 +2937,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
 --- !u!1 &1674302639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3243,7 +3237,7 @@ AudioSource:
   m_GameObject: {fileID: 1985842329}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4301139093807430514, guid: a8f70550aec839742b9fb21957a511b5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5657fab053ba8d44f89f7cfd080621a6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.01

@@ -285,6 +285,8 @@ MonoBehaviour:
   m_ball: {fileID: 1558958775570005709, guid: a4913f2bbd2b0a64f9ce3efd4cc1d0a5, type: 3}
   ball_Damage: 1
   m_playerPaddle: {fileID: 1638124697}
+  Player1Paddle: {fileID: 0}
+  Player2Paddle: {fileID: 0}
   limitTime_stage: 60
   playerLife: 3
   totalBrick: 0
@@ -303,6 +305,7 @@ MonoBehaviour:
   bossHP: 50
   oneLifeLose: 0
   gameLevel: 1
+  gamePlayer: 1
   ballCount: 0
 --- !u!4 &311990408
 Transform:
@@ -2538,8 +2541,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 1638124698}
-  Left: 276
-  Right: 275
 --- !u!50 &1638124698
 Rigidbody2D:
   serializedVersion: 4
@@ -2691,14 +2692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1df7ce65ac3c93e4290a4caad887bc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 1558958775570005709, guid: a4913f2bbd2b0a64f9ce3efd4cc1d0a5, type: 3}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
-  numberOfBallsToAdd: 1
-  newBallSpeed: 5
-  transparentDuration: 3
-  transparencyValue: 0.2
+  Ball:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1674302639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2972,7 +2969,7 @@ AudioSource:
   m_GameObject: {fileID: 1985842329}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4301139093807430514, guid: a8f70550aec839742b9fb21957a511b5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5657fab053ba8d44f89f7cfd080621a6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.01

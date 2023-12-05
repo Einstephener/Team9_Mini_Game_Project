@@ -14,11 +14,6 @@ public class StartBtn : MonoBehaviour
     public AudioClip clickMusic;
 
     public bool isDuo; //멀티 플레이 인가?
-    void Start()
-    {
-        clickSound = GetComponent<AudioSource>();
-        clickSound.clip = clickMusic;
-    }
 
     public void GoTo1P()
     {
