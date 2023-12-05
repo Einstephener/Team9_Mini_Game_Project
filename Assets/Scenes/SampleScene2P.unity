@@ -437,7 +437,7 @@ MonoBehaviour:
   m_playerPaddle: {fileID: 1638124697}
   Player1Paddle: {fileID: 1638124696}
   Player2Paddle: {fileID: 899118697}
-  limitTime_stage: 60
+  limitTime_stage: 200
   playerLife: 3
   totalBrick: 0
   destroyBrickNum: 0
@@ -1184,9 +1184,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
 --- !u!61 &899118700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2940,9 +2937,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  SpeedItem: {fileID: 7618794399734723129}
-  DoubleItem: {fileID: 3730313065786334816}
-  TransparentItem: {fileID: 4014237314011218234}
 --- !u!1 &1674302639
 GameObject:
   m_ObjectHideFlags: 0

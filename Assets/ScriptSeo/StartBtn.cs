@@ -24,12 +24,18 @@ public class StartBtn : MonoBehaviour
     {
         clickSound.PlayOneShot(clickMusic);
         isDuo = false;
-        SceneManager.LoadScene("SampleScene2P");
+        StartCoroutine(LoadSceneAfterDelay("Stage1"));
     }
     public void GoTo2P()
     {
         clickSound.PlayOneShot(clickMusic);
         isDuo = true;
-        SceneManager.LoadScene("SampleScene2P");
+        StartCoroutine(LoadSceneAfterDelay("Stage1"));
+    }
+
+    IEnumerator LoadSceneAfterDelay(string sceneName)
+    {
+        yield return new WaitForSeconds(1f); // 1초의 딜레이
+        SceneManager.LoadScene(sceneName);
     }
 }
