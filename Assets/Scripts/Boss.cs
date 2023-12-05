@@ -30,16 +30,19 @@ public class Boss : MonoBehaviour
         switch (bossPatternNum)
         {
             case 0:
-                StartCoroutine("BossPattern01");
+                BossPattern04();
+                //   StartCoroutine("BossPattern01");
                 break;
             case 1:
-                StartCoroutine("BossPattern01");
+                BossPattern04();
+              //  StartCoroutine("BossPattern02");
                 break;
             case 2:
-                StartCoroutine("BossPattern01");
+                BossPattern04();
                 break;
             case 3:
-                StartCoroutine("BossPattern01");
+                BossPattern04();
+              //  StartCoroutine("BossPattern02");
                 break;
         }
         StartCoroutine("BossPatternDelay");
@@ -68,5 +71,29 @@ public class Boss : MonoBehaviour
             Instantiate(bullets[0], randomX,Quaternion.identity);
             yield return new WaitForSeconds(0.25f);
         }
+    }
+    IEnumerator BossPattern02()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            Vector3 randomX = new Vector3(Random.Range(-15f, 15f), 25f, 0f);
+            Instantiate(bullets[1], randomX, Quaternion.identity);
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+    private void BossPattern03()
+    {
+        for (int i = 0; i < 360; i += 18)
+        {
+            //총알 생성
+            GameObject temp = Instantiate(bullets[2],transform.position,Quaternion.identity);
+
+            //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
+            temp.transform.rotation = Quaternion.Euler(0, 0, i);
+        }
+    }
+    private void BossPattern04()
+    {
+        transform.GetChild(0).gameObject.SetActive(true);
     }
 }
