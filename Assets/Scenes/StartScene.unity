@@ -799,8 +799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08d9270a89d404bab0e8c9aaa085a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start1PButton: {fileID: 0}
-  start2PButton: {fileID: 0}
+  start1PButton: {fileID: 972046419}
+  start2PButton: {fileID: 727213311}
   ChangePlayer2Button: {fileID: 0}
   clickSound: {fileID: 727213314}
   clickMusic: {fileID: 8300000, guid: 2b8009ddc90cea241bf053bd148f85cb, type: 3}
@@ -1007,8 +1007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08d9270a89d404bab0e8c9aaa085a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start1PButton: {fileID: 0}
-  start2PButton: {fileID: 0}
+  start1PButton: {fileID: 972046419}
+  start2PButton: {fileID: 727213311}
   ChangePlayer2Button: {fileID: 0}
   clickSound: {fileID: 972046423}
   clickMusic: {fileID: 8300000, guid: 2b8009ddc90cea241bf053bd148f85cb, type: 3}

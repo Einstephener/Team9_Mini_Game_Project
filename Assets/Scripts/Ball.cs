@@ -1,10 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D m_rigidBody;
+    public SpriteRenderer m_sprite;
     public float m_speed;
     public AudioClip clip;
     private AudioSource audioSource;
@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
         float x = Random.Range(0, 2) == 0 ? -1 : 1;
         float y = 1;
 
-        m_rigidBody.velocity = new Vector2(x* m_speed, y* m_speed);
+        m_rigidBody.velocity = new Vector2(x * m_speed, y * m_speed);
         BallRotation();
     }
 
@@ -39,10 +39,23 @@ public class Ball : MonoBehaviour
     {
         Quaternion rot = Quaternion.Euler(0, 0, Mathf.Atan2(m_rigidBody.velocity.y, m_rigidBody.velocity.x) * 57.3f);
         transform.rotation = rot;
-
-        //테스트용
-        Debug.LogFormat("R = {0} ", Mathf.Atan2(m_rigidBody.velocity.y, m_rigidBody.velocity.x) * 57.3f);
     }
+
+    //일정 시간 공의 투명도 줄이기 (투명도 10퍼)
+    public void BallVisiable(float time)
+    {
+        this.m_sprite.material.color = new Color(1.0f, 1.0f, 1.0f, 0.1f);
+        StartCoroutine(WaitReturnSize(time));
+    }
+
+    //n초뒤에 공의 투명도를 되돌리기
+    IEnumerator WaitReturnSize(float time)
+    {
+        yield return new WaitForSeconds(time); // n초 지연
+
+        this.m_sprite.material.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
