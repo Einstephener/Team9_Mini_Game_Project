@@ -6,17 +6,8 @@ public class GetItemManager : MonoBehaviour
 {
     //패들 기준으로 만들었습니다
     public GameObject[] Ball;
-    public GameObject SpeedItem;
-    public GameObject DoubleItem;
-    public GameObject TransparentItem;
-
     // 갯수 아이템
     private int numberOfBallsToAdd = 1; //추가되는 공의 갯수 => 공 1개당 공 1개 추가 생성 => 공이 2배
-
-    private void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,7 +25,7 @@ public class GetItemManager : MonoBehaviour
                 }
             }
 
-            Destroy(TransparentItem);//먹은 아이템은 파괴
+            Destroy(GameObject.Find("TransparentItem"));//먹은 아이템은 파괴
         }
         else if (other.CompareTag("SpeedItem"))//닿은 아이템이 SpeedItem일 경우
         {
@@ -50,7 +41,7 @@ public class GetItemManager : MonoBehaviour
                 }
             }
             // 현재의 SpeedItem 오브젝트를 파괴
-            Destroy(SpeedItem);
+            Destroy(GameObject.Find("SpeedItem"));
         }
         else if (other.CompareTag("DoubleItem"))
         {
@@ -60,7 +51,7 @@ public class GetItemManager : MonoBehaviour
                 GameManager.I.BallAdd();
             }
             // 현재의 DoubleItem 오브젝트를 파괴
-            Destroy(DoubleItem);
+            Destroy(GameObject.Find("DoubleItem"));
         }
     }
 }
