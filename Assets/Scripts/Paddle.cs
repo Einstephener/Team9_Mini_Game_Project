@@ -7,10 +7,6 @@ public class Paddle : MonoBehaviour
     [Header("Rigidbody2D")]
     public Rigidbody2D m_rigidBody;
 
-    [Header("Paddle Control Key")]
-    public KeyCode Left;
-    public KeyCode Right;
-
     private float movement;
     private float m_speed;//패들 기본 이동 속도
 
@@ -24,8 +20,8 @@ public class Paddle : MonoBehaviour
         movement = 0.0f;
         m_speed = 20.0f;//기본 이속 20 고정
 
-        if (Input.GetKey(Left)) { movement -= 1.0f; }
-        if(Input.GetKey(Right)) { movement += 1.0f; }
+        if (Input.GetKey(KeyCode.LeftArrow)) { movement -= 1.0f; }
+        if(Input.GetKey(KeyCode.RightArrow)) { movement += 1.0f; }
         m_rigidBody.velocity = new Vector2(movement * m_speed, 0);    
     }
 

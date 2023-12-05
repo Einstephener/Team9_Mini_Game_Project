@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ball: {fileID: 1558958775570005709, guid: a4913f2bbd2b0a64f9ce3efd4cc1d0a5, type: 3}
-  m_playerPaddle: {fileID: 1638124696}
+  m_playerPaddle: {fileID: 1638124697}
   limitTime_stage: 60
   playerLife: 3
   totalBrick: 0
@@ -448,6 +448,7 @@ MonoBehaviour:
   lv1: 0
   lv2: 0
   lv3: 0
+  gameLevel: 1
   oneLifeLose: 0
   ballCount: 0
 --- !u!4 &311990408
@@ -1177,10 +1178,6 @@ MonoBehaviour:
   SpeedItem: {fileID: 7618794399734723129}
   DoubleItem: {fileID: 3730313065786334816}
   TransparentItem: {fileID: 4014237314011218234}
-  numberOfBallsToAdd: 1
-  newBallSpeed: 5
-  transparentDuration: 3
-  transparencyValue: 0.2
 --- !u!61 &899118700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1347,8 +1344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 899118701}
-  A: 0
-  D: 0
 --- !u!1 &1107132906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,8 +2775,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 1638124698}
-  Left: 276
-  Right: 275
 --- !u!50 &1638124698
 Rigidbody2D:
   serializedVersion: 4
@@ -2938,10 +2931,6 @@ MonoBehaviour:
   SpeedItem: {fileID: 7618794399734723129}
   DoubleItem: {fileID: 3730313065786334816}
   TransparentItem: {fileID: 4014237314011218234}
-  numberOfBallsToAdd: 1
-  newBallSpeed: 5
-  transparentDuration: 3
-  transparencyValue: 0.2
 --- !u!1 &1674302639
 GameObject:
   m_ObjectHideFlags: 0

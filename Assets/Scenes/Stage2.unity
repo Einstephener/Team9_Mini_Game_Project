@@ -345,6 +345,7 @@ MonoBehaviour:
   lv1: 0
   lv2: 0
   lv3: 0
+  gameLevel: 1
   oneLifeLose: 0
   ballCount: 0
 --- !u!4 &311990408

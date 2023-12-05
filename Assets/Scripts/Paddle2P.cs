@@ -7,10 +7,6 @@ public class Paddle2P : MonoBehaviour
     [Header("Rigidbody2D")]
     public Rigidbody2D m_rigidBody;
 
-    [Header("Paddle Control Key")]
-    public KeyCode A;
-    public KeyCode D;
-
     private float movement;
     private float m_speed;//패들 기본 이동 속도
 
