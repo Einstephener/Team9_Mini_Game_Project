@@ -7,40 +7,29 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class StartBtn : MonoBehaviour
 {
-    public Button start1PButton; 
-    public Button start2PButton; 
+    public Button start1PButton;
+    public Button start2PButton;
     public Button ChangePlayer2Button;
     public AudioSource clickSound;
     public AudioClip clickMusic;
 
+    public bool isDuo; //멀티 플레이 인가?
     void Start()
     {
         clickSound = GetComponent<AudioSource>();
         clickSound.clip = clickMusic;
-
-        start1PButton.onClick.AddListener(GoToSampleScene1P);
-        start2PButton.onClick.AddListener(GoToSampleScene2P);
     }
 
-    public void GameStart1P()
+    public void GoTo1P()
     {
-        clickSound.Play();
-
-        Invoke("GoToSampleScene1P", 1.5f);
+        clickSound.PlayOneShot(clickMusic);
+        isDuo = false;
+        SceneManager.LoadScene("SampleScene2P");
     }
-    public void GameStart2P()
+    public void GoTo2P()
     {
-        clickSound.Play();
-
-        Invoke("GoToSampleScene2P", 1.5f);
-    }
-
-    void GoToSampleScene1P()
-    {
-        SceneManager.LoadScene("SampleScene1P");
-    }
-    void GoToSampleScene2P()
-    {
+        clickSound.PlayOneShot(clickMusic);
+        isDuo = true;
         SceneManager.LoadScene("SampleScene2P");
     }
 }

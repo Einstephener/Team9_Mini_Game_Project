@@ -643,7 +643,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 727213315}
         m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
-        m_MethodName: GameStart2P
+        m_MethodName: GoTo2P
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -804,6 +804,7 @@ MonoBehaviour:
   ChangePlayer2Button: {fileID: 0}
   clickSound: {fileID: 727213314}
   clickMusic: {fileID: 8300000, guid: 2b8009ddc90cea241bf053bd148f85cb, type: 3}
+  isDuo: 0
 --- !u!1 &916649098
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +985,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 972046420}
         m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
-        m_MethodName: GameStart1P
+        m_MethodName: GoTo1P
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1011,6 +1012,7 @@ MonoBehaviour:
   ChangePlayer2Button: {fileID: 0}
   clickSound: {fileID: 972046423}
   clickMusic: {fileID: 8300000, guid: 2b8009ddc90cea241bf053bd148f85cb, type: 3}
+  isDuo: 0
 --- !u!114 &972046421
 MonoBehaviour:
   m_ObjectHideFlags: 0
