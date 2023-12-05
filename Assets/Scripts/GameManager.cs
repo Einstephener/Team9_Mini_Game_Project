@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Ball")]
     public GameObject m_ball;
+    public int ball_Damage;
 
     [Header("Paddle")]
     public Paddle m_playerPaddle;
@@ -31,39 +32,47 @@ public class GameManager : MonoBehaviour
     public Text passiveText1;
     public Text passiveText2;
     public Text passiveText3;
-    public int lv1;
-    public int lv2;
-    public int lv3;
+    public int lv1 = 0;
+    public int lv2 = 0;
+    public int lv3 = 0;
     //게임 시작 버튼에 초기화 필요
 
-    public int gameLevel = 1;
 
+    [Header("Boss")]
+    public GameObject boss01;
+    public float bossHP;
 
     [Header("GameState")]
     public bool oneLifeLose;
 
+    public int gameLevel = 1;
     public int ballCount;
-    private void Awake()
-    {
+
+    private void Awake() //싱글톤
+    { 
         if (I != null) 
         {
             Destroy(gameObject);
             return;
         }
         I = this; 
-        DontDestroyOnLoad(gameObject); 
+        DontDestroyOnLoad(gameObject); //Scene이 바뀌어도 파괴가 안되도록
     }
 
-    private void Start()
+    private void Start() 
     {
-        BallAdd();
-        //일단 임시로 여기서 초기화를 함
-        lv1 = 0;
-        lv2 = 0;
-        lv3 = 0;
+        CreatBall();
     }
 
-    public void BallAdd()
+    public void CreatBall() //시작 시 패시브 레벨+1만큼 볼 생성.
+    {
+        for (int i = 0; i < lv1 + 1; i++) 
+        {
+            BallAdd();
+        }
+    }
+
+    public void BallAdd() 
     {
         ballCount++;
         Instantiate(m_ball);
@@ -82,7 +91,6 @@ public class GameManager : MonoBehaviour
     public void ResetLife()
     {
         oneLifeLose = true;
-     
     }
     public void IsLevelOver()
     {

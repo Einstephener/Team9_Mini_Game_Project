@@ -529,7 +529,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 159712202}
         m_TargetAssemblyTypeName: NextBtn, Assembly-CSharp
-        m_MethodName: GameStart1P
+        m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

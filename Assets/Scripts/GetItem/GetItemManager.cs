@@ -59,6 +59,7 @@ public class GetItemManager : MonoBehaviour
                 IsTransparent = true;
                 ballSpriteRenderer = Ball[i].GetComponent<SpriteRenderer>();//SpriteRenderer를 찾아
                 // 아이템을 먹으면 공의 투명도 조절
+
                 if (ballSpriteRenderer != null)
                 {
                     Debug.LogError(IsTransparent);
