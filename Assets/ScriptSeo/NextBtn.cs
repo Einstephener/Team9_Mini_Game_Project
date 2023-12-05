@@ -25,7 +25,7 @@ public class NextBtn : MonoBehaviour
     void GoToNextLevel()
     {
         level = GameManager.I.gameLevel;
-
+        GameManager.I.playerLife = 3;
         // 씬 이름의 패턴을 정의
         string sceneNamePattern = "Stage{0}";
 

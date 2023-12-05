@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     public int ballCount;
 
     private void Awake() //싱글톤
-    { 
+    {
         if (I != null) 
         {
             Destroy(gameObject);
