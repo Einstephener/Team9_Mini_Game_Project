@@ -21,14 +21,11 @@ public class Passive : MonoBehaviour
         num = GameManager.I.lv2;
         Ball[] balls = FindObjectsOfType<Ball>();
 
-        // 찾아온 모든 Ball 오브젝트의 속도를 두 배로 조절
         foreach (Ball ball in balls)
         {
             if (ball != null)
             {
-                Debug.Log("전 속도 : " + ball.m_speed);
-                ball.SetSpeed(2);
-                Debug.Log("바뀐 속도: " + ball.m_speed);
+                ball.m_speed += 5; //레벨 업 하면 볼들의 스피드 5씩 증가.
             }
         }
         num++;
