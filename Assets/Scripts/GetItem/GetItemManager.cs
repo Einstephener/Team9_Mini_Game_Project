@@ -24,8 +24,7 @@ public class GetItemManager : MonoBehaviour
                     ball.BallVisiable(3);//3초동안 투명도 지속
                 }
             }
-
-            Destroy(GameObject.Find("TransparentItem"));//먹은 아이템은 파괴
+            Destroy(other.gameObject);//먹은 아이템은 파괴
         }
         else if (other.CompareTag("SpeedItem"))//닿은 아이템이 SpeedItem일 경우
         {
@@ -41,7 +40,7 @@ public class GetItemManager : MonoBehaviour
                 }
             }
             // 현재의 SpeedItem 오브젝트를 파괴
-            Destroy(GameObject.Find("SpeedItem"));
+            Destroy(other.gameObject);
         }
         else if (other.CompareTag("DoubleItem"))
         {
@@ -51,7 +50,7 @@ public class GetItemManager : MonoBehaviour
                 GameManager.I.BallAdd();
             }
             // 현재의 DoubleItem 오브젝트를 파괴
-            Destroy(GameObject.Find("DoubleItem"));
+            Destroy(other.gameObject);
         }
     }
 }
