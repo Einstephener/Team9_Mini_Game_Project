@@ -122,9 +122,4 @@ public class CreatBrick : MonoBehaviour
     {
         CheckAllBricksDestroyed();
     }
-
-    void GoToMiddleScene()
-    {
-        SceneManager.LoadScene("StartScene"); // 미들 씬으로 이동하는 코드
-    }
 }

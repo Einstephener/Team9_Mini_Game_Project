@@ -15,6 +15,7 @@ public class UIcontroller : MonoBehaviour
     public GameObject reStart_LifePanel;
 
     public GameObject[] lives;
+    public string GameManagerTag = "GameManager";
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class UIcontroller : MonoBehaviour
 
             if (stageLimitTime <= 0) //남은 시간이 0일때. StartScene호출.
             {
+                DestroyWithTag(GameManagerTag);
                 SceneManager.LoadScene("StartScene");
             }
         }
@@ -64,12 +66,25 @@ public class UIcontroller : MonoBehaviour
         }
         if (inactiveLifeCount >= 3)
         {
+            DestroyWithTag(GameManagerTag);
             reStart_LifePanel.SetActive(false);
             SceneManager.LoadScene("StartScene");
         }
         else if (GameManager.I.oneLifeLose)
         {
             reStart_LifePanel.SetActive(true);
+        }
+    }
+
+    void DestroyWithTag(string tag)
+    // 해당 태그를 가진 모든 게임 오브젝트들을 파괴하는 메서드
+    {
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        // 해당 태그를 가진 모든 게임 오브젝트들을 가져옴
+
+        foreach (GameObject obj in objectsWithTag)
+        {
+            Destroy(obj);
         }
     }
 }

@@ -12,9 +12,7 @@ public class Menu : MonoBehaviour
 
     // 태그들을 문자열로 관리하기 위한 변수
     public string GameManagerTag = "GameManager"; // 게임 매니저의 태그
-    public string PaddleTag = "Paddle"; // 패들의 태그
-    public string Paddle2PTag = "Paddle2P"; // 2인용 패들의 태그
-    public string DontDestroyCanvasTag = "DontDestroyCanvas"; // 돈디스트로이 캔버스의 태그
+    
 
     public void CheckMenu()
     {
@@ -29,9 +27,7 @@ public class Menu : MonoBehaviour
     {
         // 태그에 해당하는 게임 오브젝트들을 파괴하고 현재 씬을 다시 로드하여 재시작
         DestroyWithTag(GameManagerTag);
-        DestroyWithTag(PaddleTag);
-        DestroyWithTag(Paddle2PTag);
-        DestroyWithTag(DontDestroyCanvasTag);
+
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
         Time.timeScale = 1.0f;
@@ -41,9 +37,7 @@ public class Menu : MonoBehaviour
     {
         // 태그에 해당하는 게임 오브젝트들을 파괴하고 첫 번째 씬을 다시 로드하여 완전히 재시작
         DestroyWithTag(GameManagerTag);
-        DestroyWithTag(PaddleTag);
-        DestroyWithTag(Paddle2PTag);
-        DestroyWithTag(DontDestroyCanvasTag);
+
         SceneManager.LoadScene(0);
         Time.timeScale = 1.0f;
     }
