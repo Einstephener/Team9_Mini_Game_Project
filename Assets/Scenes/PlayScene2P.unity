@@ -2687,8 +2687,8 @@ GameObject:
   - component: {fileID: 1452633596}
   - component: {fileID: 1452633595}
   - component: {fileID: 1452633594}
-  - component: {fileID: 1452633593}
   - component: {fileID: 1452633592}
+  - component: {fileID: 1452633598}
   m_Layer: 0
   m_Name: Paddle (2)
   m_TagString: Paddle
@@ -2712,19 +2712,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &1452633593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1452633591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c67bb967238f74a89a23e616d55633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_rigidBody: {fileID: 1452633595}
 --- !u!61 &1452633594
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2864,6 +2851,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1452633598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452633591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28329b7636bf674bae8b50948582a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rigidBody: {fileID: 1452633595}
 --- !u!1 &1457779606
 GameObject:
   m_ObjectHideFlags: 0

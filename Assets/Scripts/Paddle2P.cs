@@ -20,8 +20,8 @@ public class Paddle2P : MonoBehaviour
     {
         movement = 0.0f;//현재 속도 초기화
 
-        if (Input.GetKey(KeyCode.LeftArrow)) { movement -= 1.0f; }
-        if (Input.GetKey(KeyCode.RightArrow)) { movement += 1.0f; }
+        if (Input.GetKey(KeyCode.A)) { movement -= 1.0f; }
+        if (Input.GetKey(KeyCode.D)) { movement += 1.0f; }
         m_rigidBody.velocity = new Vector2(movement * m_speed, 0);
     }
 
