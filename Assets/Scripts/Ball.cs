@@ -74,14 +74,14 @@ public class Ball : MonoBehaviour
         Destroy(effect);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //보스 공격
     {
         audioSource.PlayOneShot(clip);
 
         if (collision.gameObject.CompareTag("Boss"))
         {
             Debug.Log("보스 공격");
-            GameManager.I.boss01.GetComponent<Boss>().IsDamaged();
+            GameManager.I.boss01.GetComponent<Boss>().IsDamaged(gameObject.transform.position);
         }else
         {
             StartCoroutine(CreateHitsEffect(collision.contacts[0].point));

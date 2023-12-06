@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -11,17 +11,17 @@ public class SoundSlider : MonoBehaviour
 
     public void AudioControl()
     {
-        // ½½¶óÀÌ´õ °ª ÀúÀå
+        // ìŠ¬ë¼ì´ë” ê°’ ì €ì¥
         float currentVolume = audioSlider.value;
         PlayerPrefs.SetFloat("Volume", currentVolume);
         PlayerPrefs.Save();
 
-        // º¼·ı ¼³Á¤
+        // ë³¼ë¥¨ ì„¤ì •
         SetVolume(currentVolume);
     }
     void Start()
     {
-        if (PlayerPrefs.HasKey("Volume"))
+        if (PlayerPrefs.HasKey("Volume")) //Volume í‚¤ê°’ ì €ì¥
         {
             float savedVolume = PlayerPrefs.GetFloat("Volume");
             audioSlider.value = savedVolume;
@@ -40,9 +40,8 @@ public class SoundSlider : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        PlayerPrefs.GetFloat("Volume", audioSlider.value);
+        PlayerPrefs.GetFloat("Volume", audioSlider.value); //í‚¤ê°’ìœ¼ë¡œ ë³¼ë¥¨ ìˆ˜ì •
     }
 }
