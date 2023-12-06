@@ -636,7 +636,7 @@ MonoBehaviour:
   m_playerPaddle: {fileID: 1638124697}
   Player1Paddle: {fileID: 0}
   Player2Paddle: {fileID: 0}
-  limitTime_stage: 60
+  limitTime_stage: 500
   playerLife: 3
   totalBrick: 0
   destroyBrickNum: 0

@@ -15,7 +15,7 @@ public class CreatBrick : MonoBehaviour
     bool[] check = new bool[0];
     void Start()
     {
-        if(GameManager.I.Stage == 0)
+        if (GameManager.I.Stage == 0)
         {
             brickStocks = 7 * difficult;
             hardBrickStocks = 7 * (difficult - 1);
@@ -75,7 +75,7 @@ public class CreatBrick : MonoBehaviour
                 }
             }
         }
-        else if(GameManager.I.Stage == 2)
+        else if (GameManager.I.Stage == 2)
         {
             brickStocks = 7 * (3 + difficult);
             hardBrickStocks = 7 * (difficult - 1);
@@ -105,7 +105,7 @@ public class CreatBrick : MonoBehaviour
                 }
             }
         }
-        else if(GameManager.I.Stage == 3)
+        else if (GameManager.I.Stage == 3)
         {
             brick.transform.localScale = new Vector3(1f, 1f, 0);
             hardBrick.transform.localScale = new Vector3(1f, 1f, 0);
@@ -203,18 +203,12 @@ public class CreatBrick : MonoBehaviour
         if (allDestroy)
         {
             GameManager.I.Stage++;
-            GameManager.I.gameLevel = 1;
-            GoToMiddleScene();
+            Start();
         }
     }
 
     void Update()
     {
         CheckAllBricksDestroyed();
-    }
-
-    void GoToMiddleScene()
-    {
-        SceneManager.LoadScene("StartScene"); // 미들 씬으로 이동하는 코드
     }
 }
