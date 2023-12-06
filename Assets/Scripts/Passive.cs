@@ -17,7 +17,7 @@ public class Passive : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void DoubleSpeed()
+    public void BallSpeedUp()
     {
         int num;
         num = GameManager.I.lv2;
@@ -32,17 +32,21 @@ public class Passive : MonoBehaviour
         }
         num++;
         GameManager.I.lv2 = num;
+
         GameManager.I.getPassivePanel.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    public void LongPanel()
+    public void PanelSpeedUp()
     {
         int num;
         num = GameManager.I.lv3;
+        Paddle paddle = new Paddle();
+        paddle.m_speed += 5;
         num++;
         GameManager.I.lv3 = num;
-        //발판 길이 길어지는 메서드
+        PlayerPrefs.SetInt("PassivePanelSpeed", num); //판넬 스피드 저장.
+        PlayerPrefs.Save();
         GameManager.I.getPassivePanel.SetActive(false);
         Time.timeScale = 1f;
     }

@@ -24,18 +24,24 @@ public class StartBtn : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Stage"))
         {
-            Debug.Log("현재 스테이지" + PlayerPrefs.GetInt("Stage"));
-            StageTxt.text = "현재 레벨: " + PlayerPrefs.GetInt("Stage");
+            if(PlayerPrefs.GetInt("Stage") == 5)
+            {
+                StageTxt.text = "현재 레벨: Boss";
+            }
+            else
+            {
+                StageTxt.text = "현재 레벨: " + PlayerPrefs.GetInt("Stage"); //다음 스테이지 확인
+            }
         }
         // 이미지 설정 불러오기
         if (PlayerPrefs.HasKey("Duo"))
         {
-            if (PlayerPrefs.GetInt("Duo") == 0)
+            if (PlayerPrefs.GetInt("Duo") == 0) //전에 듀오로 설정했을때
             {
                 WhoPlay.isOn = true;
 
             }
-            if (PlayerPrefs.GetInt("Duo") == 1)
+            if (PlayerPrefs.GetInt("Duo") == 1) //전에 솔로로 설정했을 때
             {
                 WhoPlay.isOn = false;
             }
@@ -48,19 +54,17 @@ public class StartBtn : MonoBehaviour
     }
     public void Function_Toggle()
     {
-        Debug.Log(WhoPlay.isOn);
         if (WhoPlay.isOn)
-        {
-            
+        {            
             // 토글이 켜진 상태이므로 이미지를 image2로 변경
             ChangeToggleImage(Play2p);
-            PlayerPrefs.SetInt("Duo", 0);
+            PlayerPrefs.SetInt("Duo", 0); //듀오로 저장
         }
         else 
         {
             // 토글이 꺼진 상태이므로 이미지를 image1로 변경
             ChangeToggleImage(Play1p);
-            PlayerPrefs.SetInt("Duo", 1);
+            PlayerPrefs.SetInt("Duo", 1); //솔로로 저장
         }        
         PlayerPrefs.Save();
     }
@@ -92,23 +96,22 @@ public class StartBtn : MonoBehaviour
         {
             stage = PlayerPrefs.GetInt("Stage");
         }
-        Debug.Log(stage);
-        gameManager.playerLife = 3;
+        gameManager.playerLife = 3; //플레이어 목숨 초기화
         PlayerPrefs.Save();
 
         // stage가 0 이상이고 4 이하일 때만 처리
         if (stage >= 0 && stage <= 4)
         {
-            if (WhoPlay.isOn)
+            if (WhoPlay.isOn) //듀오일때
             {
                 SceneManager.LoadScene("PlayScene2p");
             }
-            else
+            else //솔로일때
             {
                 SceneManager.LoadScene("PlayScene");
             }
         }
-        if (stage == 5)
+        if (stage == 5) //보스전
         {
             SceneManager.LoadScene("Stage_Boss");
         }

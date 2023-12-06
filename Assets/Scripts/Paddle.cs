@@ -7,12 +7,19 @@ public class Paddle : MonoBehaviour
     public Rigidbody2D m_rigidBody;
 
     private float movement;
-    private float m_speed;//패들 기본 이동 속도
+    public float m_speed;//패들 기본 이동 속도
 
-    void Start()
+    void Start() //스피드 설정
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
-        m_speed = 20.0f;//기본 이속 20 
+        if (PlayerPrefs.HasKey("PassivePanelSpeed"))
+        {
+            m_speed = 20.0f + PlayerPrefs.GetInt("PassivePanelSpeed") * 5;
+        }
+        else
+        {
+            m_speed = 20.0f;
+        }
     }
 
     void Update()

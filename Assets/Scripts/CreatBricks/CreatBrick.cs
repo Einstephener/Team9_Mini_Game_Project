@@ -16,10 +16,8 @@ public class CreatBrick : MonoBehaviour
     bool[] check = new bool[0];
     void Start()
     {
-        Debug.Log("게임 매니저 스테이지" + GameManager.I.Stage);
         int Stage = PlayerPrefs.GetInt("Stage");
         difficult = Stage + 1;
-        Debug.Log("난이도" + difficult);
 
         brickStocks = 7 * difficult;
         hardBrickStocks = 7 * (difficult - 1);
@@ -49,7 +47,7 @@ public class CreatBrick : MonoBehaviour
             }
         }
     }
-    void GenerateBrick(int i)
+    void GenerateBrick(int i) //벽돌 생성
     {
         int rand;
         do
@@ -62,12 +60,13 @@ public class CreatBrick : MonoBehaviour
         GameObject newCard = Instantiate(brick);
         newCard.transform.parent = GameObject.Find("Bricks").transform;
 
-        float x = (rand % 7) * 3f - 9f;
+        float x = (rand % 7) * 3f - 9f; 
         float y = (rand / 7) * 2f + 3f;
 
-        newCard.transform.position = new Vector3(x, y, 0);
-    }
-    void GenerateHardBrick(int i)
+        newCard.transform.position = new Vector3(x, y, 0); 
+    } //비효율적인 방식이지만 전에 카드뒤집기 때 쓰던 코드를 재활용해서 오히려 코드를 짜는 시간을 단축시켜보았다.
+
+    void GenerateHardBrick(int i) //단단한 벽돌 생성.
     {
         int rand;
         do
@@ -112,12 +111,8 @@ public class CreatBrick : MonoBehaviour
 
         if (allDestroy)
         {
-            Debug.Log("초기"+ GameManager.I.Stage);
-            GameManager.I.Stage++;
-            Debug.Log("계산 후" + GameManager.I.Stage);
-            PlayerPrefs.SetInt("Stage", GameManager.I.Stage);
-            Debug.Log(GameManager.I.Stage);
-            Debug.Log(PlayerPrefs.GetInt("Stage"));
+            GameManager.I.Stage++; //스테이지 레벨 업
+            PlayerPrefs.SetInt("Stage", GameManager.I.Stage); //스테이지 저장.
             PlayerPrefs.Save();
             GoToStartScene();
         }

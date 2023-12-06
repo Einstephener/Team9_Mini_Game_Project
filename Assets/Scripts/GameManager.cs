@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -65,15 +66,30 @@ public class GameManager : MonoBehaviour
         {
             Stage = PlayerPrefs.GetInt("Stage");
         }
-        Debug.Log("게임 매니저 시작 스테이지" + Stage);
         CreatBall();
+        SetBallSpeed();
+    }
+
+    private void SetBallSpeed()
+    {
+        Ball[] balls = FindObjectsOfType<Ball>();
+        if (PlayerPrefs.HasKey("PassiveBallSpeed"))
+        {
+            foreach (Ball ball in balls)
+            {
+                if (ball != null)
+                {   //레벨 업 하면 볼들의 스피드 5씩 증가.
+                    ball.m_speed += (5 * PlayerPrefs.GetInt("PassiveBallSpeed")); 
+                }
+            }
+        }
     }
 
     public void CreatBall() //시작 시 패시브 레벨+1만큼 볼 생성.
     {
         if(PlayerPrefs.HasKey("PassiveBall"))
         {
-            for (int i = 0; i < PlayerPrefs.GetInt("PassiveBall"); i++)
+            for (int i = 0; i < PlayerPrefs.GetInt("PassiveBall") + 1; i++)
             {
                 BallAdd();
             }

@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 663884790}
+  m_speed: 0
 --- !u!61 &663884789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1318,7 +1319,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 559d64157b63ddb48b7284bb56bf0ec5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5518868, g: 0.58358335, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2826,7 +2827,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 559d64157b63ddb48b7284bb56bf0ec5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.6650944, b: 0.6650944, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2963,7 +2964,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1457779608}
         m_TargetAssemblyTypeName: Passive, Assembly-CSharp
-        m_MethodName: DoubleSpeed
+        m_MethodName: BallSpeedUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3648,7 +3649,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1509947696}
         m_TargetAssemblyTypeName: Passive, Assembly-CSharp
-        m_MethodName: LongPanel
+        m_MethodName: PanelSpeedUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3678,7 +3679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2f1cd2d10a78c194d8636fbc14fad83c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f290a3b1d7511bf4b994ecddc939bb2f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4545,7 +4546,7 @@ AudioSource:
   m_GameObject: {fileID: 1985842329}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4301139093807430514, guid: a8f70550aec839742b9fb21957a511b5, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5657fab053ba8d44f89f7cfd080621a6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.01
