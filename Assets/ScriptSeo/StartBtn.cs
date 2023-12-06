@@ -13,18 +13,14 @@ public class StartBtn : MonoBehaviour
     public AudioSource clickSound;
     public AudioClip clickMusic;
 
-    public bool isDuo; //멀티 플레이 인가?
-
     public void GoTo1P() //1p 선택
     {
         clickSound.PlayOneShot(clickMusic);
-        isDuo = false; //솔로이다.
         StartCoroutine(LoadSceneAfterDelay("PlayScene"));
     }
     public void GoTo2P() //2p 선택
     {
         clickSound.PlayOneShot(clickMusic);
-        isDuo = true; //듀오이다.
         StartCoroutine(LoadSceneAfterDelay("PlayScene2P"));
     }
 
