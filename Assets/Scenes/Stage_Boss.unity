@@ -287,7 +287,7 @@ MonoBehaviour:
   m_playerPaddle: {fileID: 1638124697}
   Player1Paddle: {fileID: 0}
   Player2Paddle: {fileID: 0}
-  limitTime_stage: 600
+  limitTime_stage: 60
   playerLife: 3
   totalBrick: 0
   destroyBrickNum: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   lv2: 0
   lv3: 0
   boss01: {fileID: 1180095217}
-  bossHP: 30
+  bossHP: 50
   bossDropItemPercent: 100
   oneLifeLose: 0
   gameLevel: 1
