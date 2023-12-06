@@ -12,6 +12,9 @@ TagManager:
   - TransparentItem
   - Boss
   - BossBullet
+  - GameManager
+  - DontDestroyCanvas
+  - Paddle2P
   layers:
   - Default
   - TransparentFX
