@@ -114,8 +114,13 @@ public class CreatBrick : MonoBehaviour
             int stage = GameManager.I.Stage;
             PlayerPrefs.SetInt("Stage", stage);
             PlayerPrefs.Save();
-            GoToMiddleScene();
+            GoToStartScene();
         }
+    }
+
+    private void GoToStartScene()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 
     void Update()
