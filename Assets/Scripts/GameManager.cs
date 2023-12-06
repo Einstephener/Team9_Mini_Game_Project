@@ -61,7 +61,11 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        Stage = PlayerPrefs.GetInt("Stage");
+        if (PlayerPrefs.HasKey("Stage"))
+        {
+            Stage = PlayerPrefs.GetInt("Stage");
+        }
+        Debug.Log("게임 매니저 시작 스테이지" + Stage);
         CreatBall();
     }
 

@@ -21,17 +21,21 @@ public class StartBtn : MonoBehaviour
     private GameManager gameManager = new GameManager();
 
     private void Start()
-    {       
+    {
+        if (PlayerPrefs.HasKey("Stage"))
+        {
+            Debug.Log("현재 스테이지" + PlayerPrefs.GetInt("Stage"));
+            StageTxt.text = "현재 레벨: " + PlayerPrefs.GetInt("Stage");
+        }
         // 이미지 설정 불러오기
         if (PlayerPrefs.HasKey("Duo"))
         {
-            int players = PlayerPrefs.GetInt("Duo");
-            if (players == 0)
+            if (PlayerPrefs.GetInt("Duo") == 0)
             {
                 WhoPlay.isOn = true;
 
             }
-            if (players == 1)
+            if (PlayerPrefs.GetInt("Duo") == 1)
             {
                 WhoPlay.isOn = false;
             }
@@ -75,13 +79,7 @@ public class StartBtn : MonoBehaviour
             Debug.LogError("이미지 변경 실패.");
         }
     }
-    private void Update()
-    {
-        if (PlayerPrefs.HasKey("Stage"))
-        {
-            StageTxt.text = "현재 레벨: " + PlayerPrefs.GetInt("Stage");
-        }
-    }
+   
     public void StarBtn()
     {
         clickSound.Play();
@@ -89,9 +87,7 @@ public class StartBtn : MonoBehaviour
     }
 
     void GoToNextLevel()
-    {
-        Debug.Log("isStart");
-            
+    {            
         if(PlayerPrefs.HasKey("Stage"))
         {
             stage = PlayerPrefs.GetInt("Stage");

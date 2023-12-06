@@ -16,9 +16,10 @@ public class CreatBrick : MonoBehaviour
     bool[] check = new bool[0];
     void Start()
     {
-        Debug.Log(GameManager.I.Stage);
+        Debug.Log("게임 매니저 스테이지" + GameManager.I.Stage);
         int Stage = PlayerPrefs.GetInt("Stage");
         difficult = Stage + 1;
+        Debug.Log("난이도" + difficult);
 
         brickStocks = 7 * difficult;
         hardBrickStocks = 7 * (difficult - 1);
@@ -111,8 +112,12 @@ public class CreatBrick : MonoBehaviour
 
         if (allDestroy)
         {
-            int stage = GameManager.I.Stage++;
-            PlayerPrefs.SetInt("Stage", stage);
+            Debug.Log("초기"+ GameManager.I.Stage);
+            GameManager.I.Stage++;
+            Debug.Log("계산 후" + GameManager.I.Stage);
+            PlayerPrefs.SetInt("Stage", GameManager.I.Stage);
+            Debug.Log(GameManager.I.Stage);
+            Debug.Log(PlayerPrefs.GetInt("Stage"));
             PlayerPrefs.Save();
             GoToStartScene();
         }
