@@ -19,13 +19,13 @@ public class StartBtn : MonoBehaviour
     {
         clickSound.PlayOneShot(clickMusic);
         isDuo = false; //솔로이다.
-        StartCoroutine(LoadSceneAfterDelay("Stage0"));
+        StartCoroutine(LoadSceneAfterDelay("PlayScene"));
     }
     public void GoTo2P() //2p 선택
     {
         clickSound.PlayOneShot(clickMusic);
         isDuo = true; //듀오이다.
-        StartCoroutine(LoadSceneAfterDelay("Stage0"));
+        StartCoroutine(LoadSceneAfterDelay("PlayScene2P"));
     }
 
     IEnumerator LoadSceneAfterDelay(string sceneName) //딜레이 생성 메서드

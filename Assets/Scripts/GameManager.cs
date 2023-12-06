@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
 
     private StartBtn IsDuo = new StartBtn();
 
+    public int Stage;
+
     [Header("Boss")]
     public GameObject boss01;
     public float bossHP;
@@ -56,11 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake() //싱글톤
     {
-        if (I != null) 
-        {
-            Destroy(gameObject);
-            return;
-        }
+        CreatBall();
         I = this; 
         DontDestroyOnLoad(gameObject); //Scene이 바뀌어도 파괴가 안되도록
     }
@@ -75,7 +73,7 @@ public class GameManager : MonoBehaviour
         {
             Player2Paddle.SetActive(false);
         }
-        CreatBall();
+        
     }
 
     public void CreatBall() //시작 시 패시브 레벨+1만큼 볼 생성.
