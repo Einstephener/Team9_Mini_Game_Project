@@ -15,12 +15,14 @@ public class StartBtn : MonoBehaviour
     public Button PlayBtn;
     public AudioSource clickSound;
     public AudioClip clickMusic;
+    public Text StageTxt;
 
     public int stage;
     private GameManager gameManager = new GameManager();
 
     private void Start()
     {
+        StageTxt.text = "현재 레벨: " + PlayerPrefs.GetInt("Stage");
         // 이미지 설정 불러오기
         if (PlayerPrefs.HasKey("Duo"))
         {
