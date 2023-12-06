@@ -55,20 +55,26 @@ public class GameManager : MonoBehaviour
     public int ballCount;
 
     private void Awake() //싱글톤
-    {
-        CreatBall();
-        I = this; 
-        DontDestroyOnLoad(gameObject); //Scene이 바뀌어도 파괴가 안되도록
+    {        
+        I = this;   
     }
 
     private void Start() 
     {
-
+        Stage = PlayerPrefs.GetInt("Stage");
+        CreatBall();
     }
 
     public void CreatBall() //시작 시 패시브 레벨+1만큼 볼 생성.
     {
-        for (int i = 0; i < lv1 + 1; i++) 
+        if(PlayerPrefs.HasKey("PassiveBall"))
+        {
+            for (int i = 0; i < PlayerPrefs.GetInt("PassiveBall"); i++)
+            {
+                BallAdd();
+            }
+        }
+        else
         {
             BallAdd();
         }

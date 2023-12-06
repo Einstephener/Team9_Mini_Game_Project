@@ -11,6 +11,8 @@ public class Passive : MonoBehaviour
         GameManager.I.BallAdd();
         num++;
         GameManager.I.lv1 = num;
+        PlayerPrefs.SetInt("PassiveBall", num);
+        PlayerPrefs.Save();
         GameManager.I.getPassivePanel.SetActive(false);
         Time.timeScale = 1f;
     }

@@ -21,8 +21,7 @@ public class StartBtn : MonoBehaviour
     private GameManager gameManager = new GameManager();
 
     private void Start()
-    {
-        StageTxt.text = "현재 레벨: " + PlayerPrefs.GetInt("Stage");
+    {       
         // 이미지 설정 불러오기
         if (PlayerPrefs.HasKey("Duo"))
         {
@@ -76,7 +75,13 @@ public class StartBtn : MonoBehaviour
             Debug.LogError("이미지 변경 실패.");
         }
     }
-
+    private void Update()
+    {
+        if (PlayerPrefs.HasKey("Stage"))
+        {
+            StageTxt.text = "현재 레벨: " + PlayerPrefs.GetInt("Stage");
+        }
+    }
     public void StarBtn()
     {
         clickSound.Play();

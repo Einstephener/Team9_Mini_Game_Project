@@ -16,6 +16,7 @@ public class CreatBrick : MonoBehaviour
     bool[] check = new bool[0];
     void Start()
     {
+        Debug.Log(GameManager.I.Stage);
         int Stage = PlayerPrefs.GetInt("Stage");
         difficult = Stage + 1;
 
@@ -110,8 +111,7 @@ public class CreatBrick : MonoBehaviour
 
         if (allDestroy)
         {
-            GameManager.I.Stage++;
-            int stage = GameManager.I.Stage;
+            int stage = GameManager.I.Stage++;
             PlayerPrefs.SetInt("Stage", stage);
             PlayerPrefs.Save();
             GoToStartScene();
