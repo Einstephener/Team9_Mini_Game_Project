@@ -74,7 +74,7 @@ public class Ball : MonoBehaviour
         Destroy(effect);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) //보스 공격
     {
         audioSource.PlayOneShot(clip);
 

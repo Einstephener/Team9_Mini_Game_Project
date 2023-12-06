@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,10 +26,10 @@ public class NextBtn : MonoBehaviour
     {
         level = GameManager.I.gameLevel;
         GameManager.I.playerLife = 3;
-        // ¾À ÀÌ¸§ÀÇ ÆÐÅÏÀ» Á¤ÀÇ
+        // ì”¬ ì´ë¦„ì˜ íŒ¨í„´ì„ ì •ì˜
         string sceneNamePattern = "Stage{0}";
 
-        // levelÀÌ 1 ÀÌ»óÀÌ°í 4 ÀÌÇÏÀÏ ¶§¸¸ Ã³¸®
+        // levelì´ 1 ì´ìƒì´ê³  4 ì´í•˜ì¼ ë•Œë§Œ ì²˜ë¦¬
         if (level >= 1 && level <= 4)
         {
             string nextScene = string.Format(sceneNamePattern, level);

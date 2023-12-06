@@ -38,7 +38,7 @@ public class UIcontroller : MonoBehaviour
             stageLimitTime = Mathf.Max(stageLimitTime, 0);
             limitTimeText.text = stageLimitTime.ToString("N2");
 
-            if (stageLimitTime <= 0)
+            if (stageLimitTime <= 0) //남은 시간이 0일때. StartScene호출.
             {
                 SceneManager.LoadScene("StartScene");
             }

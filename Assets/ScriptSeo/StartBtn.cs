@@ -15,20 +15,20 @@ public class StartBtn : MonoBehaviour
 
     public bool isDuo; //멀티 플레이 인가?
 
-    public void GoTo1P()
+    public void GoTo1P() //1p 선택
     {
         clickSound.PlayOneShot(clickMusic);
-        isDuo = false;
-        StartCoroutine(LoadSceneAfterDelay("Stage1"));
+        isDuo = false; //솔로이다.
+        StartCoroutine(LoadSceneAfterDelay("Stage0"));
     }
-    public void GoTo2P()
+    public void GoTo2P() //2p 선택
     {
         clickSound.PlayOneShot(clickMusic);
-        isDuo = true;
-        StartCoroutine(LoadSceneAfterDelay("Stage1"));
+        isDuo = true; //듀오이다.
+        StartCoroutine(LoadSceneAfterDelay("Stage0"));
     }
 
-    IEnumerator LoadSceneAfterDelay(string sceneName)
+    IEnumerator LoadSceneAfterDelay(string sceneName) //딜레이 생성 메서드
     {
         yield return new WaitForSeconds(1f); // 1초의 딜레이
         SceneManager.LoadScene(sceneName);
