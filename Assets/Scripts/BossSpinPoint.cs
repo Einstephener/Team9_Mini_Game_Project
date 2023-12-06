@@ -7,7 +7,7 @@ public class BossSpinPoint : MonoBehaviour
     public float TurnSpeed;
     
     public GameObject []bullets;
-
+    
     public float SpawnInterval = 0.5f;
     private float spawnTimer;
     private float timer;
@@ -31,6 +31,7 @@ public class BossSpinPoint : MonoBehaviour
             spawnTimer = 0f;
 
             GameObject bullet = Instantiate(bullets[2]);
+            bullet.transform.parent = transform.parent.transform.GetComponent<Boss>().instantiateBullet.transform;
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
         }
