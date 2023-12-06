@@ -4,33 +4,110 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEditor.SceneManagement;
+using System;
 
 public class StartBtn : MonoBehaviour
 {
-    public Button start1PButton;
-    public Button start2PButton;
-    public Button ChangePlayer2Button;
+    public Toggle WhoPlay;
+    public Sprite Play1p;
+    public Sprite Play2p;
+    public Button PlayBtn;
     public AudioSource clickSound;
     public AudioClip clickMusic;
 
-    public bool isDuo; //멀티 플레이 인가?
+    public int stage;
+    private GameManager gameManager = new GameManager();
 
-    public void GoTo1P() //1p 선택
+    private void Start()
     {
-        clickSound.PlayOneShot(clickMusic);
-        isDuo = false; //솔로이다.
-        StartCoroutine(LoadSceneAfterDelay("PlayScene"));
+        // 이미지 설정 불러오기
+        if (PlayerPrefs.HasKey("Duo"))
+        {
+            int players = PlayerPrefs.GetInt("Duo");
+            if (players == 0)
+            {
+                WhoPlay.isOn = true;
+
+            }
+            if (players == 1)
+            {
+                WhoPlay.isOn = false;
+            }
+        }
+        else
+        {
+            Debug.Log("Duo키 없음.");
+        }
+        
     }
-    public void GoTo2P() //2p 선택
+    public void Function_Toggle()
     {
-        clickSound.PlayOneShot(clickMusic);
-        isDuo = true; //듀오이다.
-        StartCoroutine(LoadSceneAfterDelay("PlayScene2P"));
+        Debug.Log(WhoPlay.isOn);
+        if (WhoPlay.isOn)
+        {
+            
+            // 토글이 켜진 상태이므로 이미지를 image2로 변경
+            ChangeToggleImage(Play2p);
+            PlayerPrefs.SetInt("Duo", 0);
+        }
+        else 
+        {
+            // 토글이 꺼진 상태이므로 이미지를 image1로 변경
+            ChangeToggleImage(Play1p);
+            PlayerPrefs.SetInt("Duo", 1);
+        }        
+        PlayerPrefs.Save();
     }
 
-    IEnumerator LoadSceneAfterDelay(string sceneName) //딜레이 생성 메서드
+    void ChangeToggleImage(Sprite newImage)
     {
-        yield return new WaitForSeconds(1f); // 1초의 딜레이
-        SceneManager.LoadScene(sceneName);
+        // 토글의 이미지 변경
+        Image toggleImage = WhoPlay.GetComponent<Image>();
+        if (toggleImage != null)
+        {
+            Debug.Log(newImage.name);
+            toggleImage.sprite = newImage;
+        }
+        else
+        {
+            Debug.LogError("이미지 변경 실패.");
+        }
+    }
+
+    public void StarBtn()
+    {
+        clickSound.Play();
+        Invoke("GoToNextLevel", 1f);
+    }
+
+    void GoToNextLevel()
+    {
+        Debug.Log("isStart");
+            
+        if(PlayerPrefs.HasKey("Stage"))
+        {
+            stage = PlayerPrefs.GetInt("Stage");
+        }
+        Debug.Log(stage);
+        gameManager.playerLife = 3;
+        PlayerPrefs.Save();
+
+        // stage가 0 이상이고 4 이하일 때만 처리
+        if (stage >= 0 && stage <= 4)
+        {
+            if (WhoPlay.isOn)
+            {
+                SceneManager.LoadScene("PlayScene2p");
+            }
+            else
+            {
+                SceneManager.LoadScene("PlayScene");
+            }
+        }
+        if (stage == 5)
+        {
+            SceneManager.LoadScene("Stage_Boss");
+        }
     }
 }

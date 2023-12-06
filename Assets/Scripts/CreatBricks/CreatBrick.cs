@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,7 @@ public class CreatBrick : MonoBehaviour
 {
     int brickStocks = 0;
     int hardBrickStocks = 0;
-    int difficult = 1;
+    int difficult;
     public GameObject brick;
     public GameObject hardBrick;
     public GameObject bricks;
@@ -15,129 +16,36 @@ public class CreatBrick : MonoBehaviour
     bool[] check = new bool[0];
     void Start()
     {
-        if(GameManager.I.Stage == 0)
-        {
-            brickStocks = 7 * difficult;
-            hardBrickStocks = 7 * (difficult - 1);
+        int Stage = PlayerPrefs.GetInt("Stage");
+        difficult = Stage + 1;
 
-            check = new bool[brickStocks];
-            for (int i = 0; i < brickStocks; i++)
+        brickStocks = 7 * difficult;
+        hardBrickStocks = 7 * (difficult - 1);
+
+        check = new bool[brickStocks];
+        for (int i = 0; i < brickStocks; i++)
+        {
+            check[i] = false;
+        }
+        Time.timeScale = 1.0f;
+        for (int i = 0; i < brickStocks; i++)
+        {
+            GenerateBrick(i);
+        }
+        // 2번 부수는 벽돌
+        if (hardBrickStocks != 0)
+        {
+            check = new bool[hardBrickStocks];
+            for (int i = 0; i < hardBrickStocks; i++)
             {
                 check[i] = false;
             }
             Time.timeScale = 1.0f;
-            for (int i = 0; i < brickStocks; i++)
+            for (int i = 0; i < hardBrickStocks; i++)
             {
-                GenerateBrick(i);
-            }
-            // 2번 부수는 벽돌
-            if (hardBrickStocks != 0)
-            {
-                check = new bool[hardBrickStocks];
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    check[i] = false;
-                }
-                Time.timeScale = 1.0f;
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    GenerateHardBrick(i);
-                }
+                GenerateHardBrick(i);
             }
         }
-        else if (GameManager.I.Stage == 1)
-        {
-            brickStocks = 7 * (3 + difficult);
-            hardBrickStocks = 7 * (difficult - 1);
-
-            check = new bool[brickStocks];
-            for (int i = 0; i < brickStocks; i++)
-            {
-                check[i] = false;
-            }
-            Time.timeScale = 1.0f;
-            for (int i = 0; i < brickStocks; i++)
-            {
-                GenerateBrick(i);
-            }
-            // 2번 부수는 벽돌
-            if (hardBrickStocks != 0)
-            {
-                check = new bool[hardBrickStocks];
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    check[i] = false;
-                }
-                Time.timeScale = 1.0f;
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    GenerateHardBrick(i);
-                }
-            }
-        }
-        else if(GameManager.I.Stage == 2)
-        {
-            brickStocks = 7 * (3 + difficult);
-            hardBrickStocks = 7 * (difficult - 1);
-
-            check = new bool[brickStocks];
-            for (int i = 0; i < brickStocks; i++)
-            {
-                check[i] = false;
-            }
-            Time.timeScale = 1.0f;
-            for (int i = 0; i < brickStocks; i++)
-            {
-                GenerateBrick(i);
-            }
-            // 2번 부수는 벽돌
-            if (hardBrickStocks != 0)
-            {
-                check = new bool[hardBrickStocks];
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    check[i] = false;
-                }
-                Time.timeScale = 1.0f;
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    GenerateHardBrick(i);
-                }
-            }
-        }
-        else if(GameManager.I.Stage == 3)
-        {
-            brick.transform.localScale = new Vector3(1f, 1f, 0);
-            hardBrick.transform.localScale = new Vector3(1f, 1f, 0);
-            brickStocks = 9 * (3 + difficult);
-            hardBrickStocks = 9 * (difficult - 1);
-
-            check = new bool[brickStocks];
-            for (int i = 0; i < brickStocks; i++)
-            {
-                check[i] = false;
-            }
-            Time.timeScale = 1.0f;
-            for (int i = 0; i < brickStocks; i++)
-            {
-                GenerateBrick(i);
-            }
-            // 2번 부수는 벽돌
-            if (hardBrickStocks != 0)
-            {
-                check = new bool[hardBrickStocks];
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    check[i] = false;
-                }
-                Time.timeScale = 1.0f;
-                for (int i = 0; i < hardBrickStocks; i++)
-                {
-                    GenerateHardBrick(i);
-                }
-            }
-        }
-
     }
     void GenerateBrick(int i)
     {
@@ -203,7 +111,9 @@ public class CreatBrick : MonoBehaviour
         if (allDestroy)
         {
             GameManager.I.Stage++;
-            GameManager.I.gameLevel = 1;
+            int stage = GameManager.I.Stage;
+            PlayerPrefs.SetInt("Stage", stage);
+            PlayerPrefs.Save();
             GoToMiddleScene();
         }
     }

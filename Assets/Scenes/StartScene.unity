@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 727213311}
   - component: {fileID: 727213314}
   m_Layer: 5
-  m_Name: startBtn2p
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,7 +624,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 140, y: 200}
-  m_SizeDelta: {x: 250, y: 200}
+  m_SizeDelta: {x: 150, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &727213311
 MonoBehaviour:
@@ -672,7 +672,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 727213315}
         m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
-        m_MethodName: GoTo2P
+        m_MethodName: StarBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 375e6b7a8d3a88747bf89a4e62362cdc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecc44deb070ad4047aa1af9b096d1141, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -828,12 +828,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08d9270a89d404bab0e8c9aaa085a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start1PButton: {fileID: 972046419}
-  start2PButton: {fileID: 727213311}
-  ChangePlayer2Button: {fileID: 0}
+  WhoPlay: {fileID: 972046424}
+  Play1p: {fileID: 0}
+  Play2p: {fileID: 0}
+  PlayBtn: {fileID: 727213311}
   clickSound: {fileID: 727213314}
   clickMusic: {fileID: 8300000, guid: 2b8009ddc90cea241bf053bd148f85cb, type: 3}
-  isDuo: 0
+  stage: 0
 --- !u!1 &916649098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,10 +1042,10 @@ GameObject:
   - component: {fileID: 972046422}
   - component: {fileID: 972046421}
   - component: {fileID: 972046420}
-  - component: {fileID: 972046419}
   - component: {fileID: 972046423}
+  - component: {fileID: 972046424}
   m_Layer: 5
-  m_Name: startBtn1p
+  m_Name: 1Por2P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1070,62 +1071,6 @@ RectTransform:
   m_AnchoredPosition: {x: -125, y: 200}
   m_SizeDelta: {x: 250, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &972046419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972046417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 972046421}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 972046420}
-        m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
-        m_MethodName: GoTo1P
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &972046420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,12 +1083,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e08d9270a89d404bab0e8c9aaa085a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start1PButton: {fileID: 972046419}
-  start2PButton: {fileID: 727213311}
-  ChangePlayer2Button: {fileID: 0}
+  WhoPlay: {fileID: 972046424}
+  Play1p: {fileID: 21300000, guid: b705fa6761023234e9259ccc15ca77f8, type: 3}
+  Play2p: {fileID: 21300000, guid: 375e6b7a8d3a88747bf89a4e62362cdc, type: 3}
+  PlayBtn: {fileID: 0}
   clickSound: {fileID: 972046423}
   clickMusic: {fileID: 8300000, guid: 2b8009ddc90cea241bf053bd148f85cb, type: 3}
-  isDuo: 0
+  stage: 0
 --- !u!114 &972046421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,7 +1110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b705fa6761023234e9259ccc15ca77f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 375e6b7a8d3a88747bf89a4e62362cdc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1278,6 +1224,66 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &972046424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 972046417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 972046421}
+  toggleTransition: 0
+  graphic: {fileID: 0}
+  m_Group: {fileID: 0}
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 972046420}
+        m_TargetAssemblyTypeName: StartBtn, Assembly-CSharp
+        m_MethodName: Function_Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  m_IsOn: 1
 --- !u!1 &1105749439
 GameObject:
   m_ObjectHideFlags: 0

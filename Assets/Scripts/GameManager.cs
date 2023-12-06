@@ -40,9 +40,7 @@ public class GameManager : MonoBehaviour
     public int lv3 = 0;
     //게임 시작 버튼에 초기화 필요
 
-    private StartBtn IsDuo = new StartBtn();
-
-    public int Stage;
+    public int Stage = 0;
 
     [Header("Boss")]
     public GameObject boss01;
@@ -65,15 +63,7 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        if(IsDuo.isDuo == true) //듀오일때
-        { 
-            Player2Paddle.SetActive(true); //player 2 액티브.
-        }
-        else
-        {
-            Player2Paddle.SetActive(false);
-        }
-        
+
     }
 
     public void CreatBall() //시작 시 패시브 레벨+1만큼 볼 생성.

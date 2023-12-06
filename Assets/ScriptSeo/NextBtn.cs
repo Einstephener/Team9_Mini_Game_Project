@@ -9,7 +9,7 @@ public class NextBtn : MonoBehaviour
 {
     public AudioSource clickSound;
     public AudioClip clickMusic;
-    private int level;
+    private int stage;
     void Start()
     {
         clickSound = GetComponent<AudioSource>();
@@ -24,18 +24,15 @@ public class NextBtn : MonoBehaviour
 
     void GoToNextLevel()
     {
-        level = GameManager.I.gameLevel;
+        stage = GameManager.I.Stage;
         GameManager.I.playerLife = 3;
-        // 씬 이름의 패턴을 정의
-        string sceneNamePattern = "Stage{0}";
 
-        // level이 1 이상이고 4 이하일 때만 처리
-        if (level >= 1 && level <= 4)
-        {
-            string nextScene = string.Format(sceneNamePattern, level);
-            SceneManager.LoadScene(nextScene);
+        // stage가 0 이상이고 4 이하일 때만 처리
+        if (stage >= 0 && stage <= 4)
+        {          
+            SceneManager.LoadScene("");
         }
-        if (level == 10)
+        if (stage == 5)
         {
             SceneManager.LoadScene("Stage_Boss");
         }
