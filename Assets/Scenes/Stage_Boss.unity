@@ -301,9 +301,10 @@ MonoBehaviour:
   lv1: 0
   lv2: 0
   lv3: 0
+  Stage: 0
   boss01: {fileID: 1180095217}
   bossHP: 50
-  bossDropItemPercent: 100
+  bossDropItemPercent: 20
   oneLifeLose: 0
   gameLevel: 1
   gamePlayer: 1
@@ -1794,6 +1795,7 @@ MonoBehaviour:
   - {fileID: 609945942}
   - {fileID: 1674302639}
   - {fileID: 360651817}
+  GameManagerTag: GameManager
 --- !u!1 &1601448527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,6 +1973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rigidBody: {fileID: 1638124698}
+  m_speed: 0
 --- !u!50 &1638124698
 Rigidbody2D:
   serializedVersion: 4
