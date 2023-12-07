@@ -23,3 +23,9 @@ _이 프로젝트는 벽돌깨기를 기반으로 제작한 게임입니다._
 ##### 사용한 에셋
 - https://assetstore.unity.com/packages/2d/textures-materials/abstract/warped-shooting-fx-195246
 - https://assetstore.unity.com/packages/2d/environments/free-8-bit-pixel-pack-79530
+
+##### 팀 노션
+- https://www.notion.so/9-4195c9f0778d4a99859bbcd7aa438462
+
+##### 과제 시연 동영상
+- https://youtu.be/LNh24PF4P3U
