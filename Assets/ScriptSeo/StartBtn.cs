@@ -18,10 +18,11 @@ public class StartBtn : MonoBehaviour
     public Text StageTxt;
 
     public int stage;
-    private GameManager gameManager = new GameManager();
+    private GameManager gameManager;
 
     private void Start()
     {
+        gameManager = GameManager.I;
         if (PlayerPrefs.HasKey("Stage"))
         {
             if(PlayerPrefs.GetInt("Stage") == 5)
